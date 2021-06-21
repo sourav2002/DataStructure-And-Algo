@@ -1,10 +1,4 @@
 package array;
-//Given an array, cyclically rotate the array clockwise by one.
-//
-//        Examples:
-//
-//        Input:  arr[] = {1, 2, 3, 4, 5}
-//        Output: arr[] = {5, 1, 2, 3, 4}
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -20,8 +14,7 @@ public class CyclicallyRotate {
     private static void printRotatedArray(Integer[] arr) {
         List<Integer> list = Arrays.asList(arr);
 
-        List<Integer> newlist = new LinkedList<>();
-        newlist.addAll(list);
+        List<Integer> newlist = new LinkedList<>(list);
         int lastelement = arr[arr.length-1];
         newlist.add(0,lastelement);
         newlist.remove(arr.length);

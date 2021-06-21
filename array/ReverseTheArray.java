@@ -31,7 +31,6 @@ public class ReverseTheArray {
             temp = arr[ith];
             arr[ith]  = arr[jth];
             arr[jth] = temp;
-
             ith++;
             jth--;
         }
@@ -48,6 +47,7 @@ public class ReverseTheArray {
         }
         printArray(arr);
         reverseArray(arr,0,(arr.length-1));
+        System.out.println("After Rotating: ");
         printArray(arr);
 
     }
