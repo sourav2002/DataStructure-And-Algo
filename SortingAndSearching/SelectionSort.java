@@ -2,7 +2,7 @@ package SortingAndSearching;
 
 import java.util.Scanner;
 
-//{@link AscendingOrder }
+
 public class SelectionSort {
 
     // sort method
