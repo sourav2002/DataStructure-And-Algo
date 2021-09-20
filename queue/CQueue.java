@@ -1,5 +1,4 @@
 package queue;
-
 // Circular Queue implementation in Java
 
 public class CQueue {

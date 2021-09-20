@@ -1,90 +1,118 @@
 package Heap;
 
-
 // Max-Heap data structure in Java
 
-import java.util.ArrayList;
-
 class Heap {
-    void heapify(ArrayList<Integer> hT, int i) {
-        int size = hT.size();
-        int largest = i;
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
-        if (l < size && hT.get(l) > hT.get(largest)){
-            largest = l;
-        }
-        if (r < size && hT.get(r) > hT.get(largest)){
-            largest = r;
-        }
-        if (largest != i) {
-            int temp = hT.get(largest);
-            hT.set(largest, hT.get(i));
-            hT.set(i, temp);
 
-            heapify(hT, largest);
-        }
+
+    /* A utility function to print array of size n */
+    static void printArray(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
     }
 
-    void insert(ArrayList<Integer> hT, int newNum) {
-        int size = hT.size();
-        if (size == 0) {
-            hT.add(newNum);
-        } else {
-            hT.add(newNum);
-            for (int i = size / 2 - 1; i >= 0; i--) {
-                heapify(hT, i);
+    // Driver program
+    public static void main(String args[]) {
+        int arr[] = {12, 11, 13, 5, 6, 7};
+        int n = arr.length;
+
+        Heap ob = new Heap();
+//        ob.sort(arr);
+        ob.heapify(arr,n,0);
+        ob.deleteRoot(arr,n);
+
+        System.out.println("Sorted array is");
+        printArray(arr);
+    }
+
+    public void insert(int arr[], int n, int key) {
+        n = n + 1;
+        arr[n - 1] = key;
+        // Find parent
+        int i = n-1;
+        int parent = (i - 1) / 2;
+
+        if (arr[parent] > 0) {
+            // For Max-Heap
+            // If current node is greater than its parent
+            // Swap both of them and call heapify again
+            // for the parent
+            if (arr[i] > arr[parent]) {
+//                swap(arr[i], arr[parent]);
+                int temp = arr[i];
+                arr[i] = arr[parent];
+                arr[parent] = temp;
+                // Recursively heapify the parent node
+                heapify(arr, n, parent);
             }
         }
     }
 
-    void deleteNode(ArrayList<Integer> hT, int num)
+    // Function to delete the root from Heap
+    int deleteRoot(int arr[], int n)
     {
-        int size = hT.size();
-        int i;
-        for (i = 0; i < size; i++)
-        {
-            if (num == hT.get(i))
-                break;
+        // Get the last element
+        int lastElement = arr[n - 1];
+
+        // Replace root with first element
+        arr[0] = lastElement;
+
+        // Decrease size of heap by 1
+        n = n - 1;
+
+        // heapify the root node
+        heapify(arr, n, 0);
+
+        // return new size of Heap
+        return n;
+    }
+
+    // sort method
+    public void sort(int arr[]) {
+        int n = arr.length;
+
+        // Build heap (rearrange array)
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
         }
 
-        int temp = hT.get(i);
-        hT.set(i, hT.get(size-1));
-        hT.set(size-1, temp);
+        // One by one extract an element from heap
+        for (int i = n - 1; i >= 0; i--) {
+            // Move current root to end
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
 
-        hT.remove(size-1);
-        for (int j = size / 2 - 1; j >= 0; j--)
-        {
-            heapify(hT, j);
+            // call max heapify on the reduced heap
+            heapify(arr, i, 0);
         }
     }
 
-    void printArray(ArrayList<Integer> array, int size) {
-        for (Integer i : array) {
-            System.out.print(i + " ");
+    // To heapify a subtree rooted with node i which is
+    // an index in arr[]. n is size of heap
+    public void heapify(int arr[], int n, int i) {
+        int largest = i;  // Initialize largest as root
+        int l = 2 * i + 1;  // left = 2*i + 1
+        int r = 2 * i + 2;  // right = 2*i + 2
+
+        // If left child is larger than root
+        if (l < n && arr[l] > arr[largest])
+            largest = l;
+
+        // If right child is larger than largest so far
+        if (r < n && arr[r] > arr[largest])
+            largest = r;
+
+        // If largest is not root
+        if (largest != i) {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+
+            // Recursively heapify the affected sub-tree
+            heapify(arr, n, largest);
         }
-        System.out.println();
-    }
-
-    public static void main(String args[]) {
-
-        ArrayList<Integer> array = new ArrayList<Integer>();
-        int size = array.size();
-
-        Heap h = new Heap();
-        h.insert(array, 15);
-        h.insert(array, 5);
-        h.insert(array, 20);
-        h.insert(array, 1);
-        h.insert(array, 17);
-        h.insert(array, 10);
-        h.insert(array, 30);
-        System.out.println("Max-Heap array: ");
-        h.printArray(array, size);
-
-
-//        h.deleteNode(array, 4);
-//        System.out.println("After deleting an element: ");
-//        h.printArray(array, size);
     }
 }

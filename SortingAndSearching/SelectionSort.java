@@ -6,9 +6,8 @@ import java.util.Scanner;
 public class SelectionSort {
 
     // sort method
-    public void sort(int[] arr, int size) {
+    public  static void sort(int[] arr, int size) {
         for (int a = 0; a < size - 1; a++) {
-            boolean sorted = true;  //checkpoint if array is sorted or not
             int minIndex = a;
             for (int b = a+1; b < size; b++) {
                 // check if current index element is less then minimum index element
@@ -21,9 +20,7 @@ public class SelectionSort {
                 temp = arr[a];
                 arr[a] = arr[minIndex];
                 arr[minIndex] = temp;
-                sorted = false;
             }
-            if (sorted) break;
         }
     }
 
@@ -36,7 +33,7 @@ public class SelectionSort {
     }
 
     // main method
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter no. of Test Cases : ");
         int testcases = input.nextInt();

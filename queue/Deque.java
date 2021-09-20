@@ -1,5 +1,4 @@
 package queue;
-
 // Deque implementation in Java
 
 class Deque {
