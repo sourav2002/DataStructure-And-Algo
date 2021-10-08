@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.ArrayList;
  
-class GFG {
+class Kth_Largest_Element {
     public static void kLargest(Integer[] arr, int k)
     {
         Arrays.sort(arr, Collections.reverseOrder());
