@@ -1,16 +1,15 @@
 package graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CycleInDirectedGraphDFS {
 
     public static void main(String[] args) {
         int n = 7;
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 
         for (int i = 0; i < n; i++)
-            adj.add(new ArrayList<Integer>());
+            adj.add(new ArrayList<>());
 
         adj.get(0).add(1);
 
@@ -26,23 +25,24 @@ public class CycleInDirectedGraphDFS {
 
         adj.get(6).add(1);
         CycleInDirectedGraphDFS cycle = new CycleInDirectedGraphDFS();
-        cycle.isCyclic(n,adj);
-        if (cycle.isCyclic(n, adj) == true) System.out.println("Not Bipartite");// conditions are different in this one
+        cycle.isCyclic(n, adj);
+        if (cycle.isCyclic(n, adj)) System.out.println("Not Bipartite");// conditions are different in this one
             // as compared to other Bipartite graph
         else System.out.println("Yes Bipartite");
 
     }
 
-    public boolean isCyclic(int n, ArrayList<ArrayList<Integer>> adj){
-        int visited[] = new int[n];
-        int dfsVisited[] = new int[n];
+    public boolean isCyclic(int n, ArrayList<ArrayList<Integer>> adj) {
+        int[] visited = new int[n];
+        int[] dfsVisited = new int[n];
 
-        Arrays.fill(visited, 0);
-        Arrays.fill(dfsVisited, 0);
+//        Arrays.fill(visited, 0);
+//        Arrays.fill(dfsVisited, 0);  //we don't need to initialized array with 0
+//        because it is initialized with 0 by default.
 
-        for (int i =0;i<n;i++){
-            if (visited[i] ==0){
-                if (checkCycle(i,adj, visited,dfsVisited) == true) return true;
+        for (int i = 0; i < n; i++) {
+            if (visited[i] == 0) {
+                if (checkCycle(i, adj, visited, dfsVisited)) return true;
             }
         }
         return false;
@@ -52,16 +52,16 @@ public class CycleInDirectedGraphDFS {
 
         visited[node] = 1;
         dfsVisited[node] = 1;
-        for (Integer it : adj.get(node)){
-            if (visited[it] == 0){
-                if (checkCycle(it,adj,visited,dfsVisited) == true){
+        for (Integer it : adj.get(node)) {
+            if (visited[it] == 0) {
+                if (checkCycle(it, adj, visited, dfsVisited)) {
                     return true;
                 }
-            }else if (dfsVisited[it] == 1){
+            } else if (dfsVisited[it] == 1) {
                 return true;
             }
         }
         dfsVisited[node] = 0;
         return false;
-     }
+    }
 }

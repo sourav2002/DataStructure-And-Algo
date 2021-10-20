@@ -1,9 +1,9 @@
-package sample;
+package array;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Practical
+class Practical
 {
     public static void main(String[] args)
     {

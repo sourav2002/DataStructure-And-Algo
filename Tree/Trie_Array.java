@@ -1,6 +1,6 @@
-package treeDS;
+package Tree;
 
-public class Tries_Array {
+class Tries_Array {
 
 	public static void main(String[] args) {
 		Trie_Ar tr=new Trie_Ar();

@@ -27,7 +27,7 @@ public class TopologicalSortBFS {
 
     }
 
-    private int[] topoSort(ArrayList<ArrayList<Integer>> adj, int v) {
+    int[] topoSort(ArrayList<ArrayList<Integer>> adj, int v) {
         Queue<Integer> q = new LinkedList<>();
         int[] visited = new int[v];
         for (int i=0; i<v; i++){
@@ -35,7 +35,7 @@ public class TopologicalSortBFS {
                 findTopoSortBFS(adj,i,q,visited);
             }
         }
-        // put values from stack to an array because we have to return an array
+        // put values from queue to an array because we have to return an array
         int[] topo = new int[v];
         int ind =v-1;
         while (!q.isEmpty()){

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BipartiteGraphBFS {
+ class BipartiteGraphBFS {
 
     public static void main(String args[]) {
         int n = 7;

@@ -1,3 +1,5 @@
+package Matrix;
+
 class CircularMatrix {
  
     static int MAX = 100;
@@ -7,7 +9,7 @@ class CircularMatrix {
  
         int k = 0, l = 0;
         while (k < m && l < n) {
-          rows */
+//          rows */
             for (int i = l; i < n; ++i) {
                 a[k][i] = val++;
             }
