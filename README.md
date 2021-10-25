@@ -1,4 +1,4 @@
-# DataStructure-And-Algo in JAVA
+# DataStructure-And-Algorithm in JAVA
 
 -------  
 
