@@ -5,7 +5,7 @@
 # Solution of  DSA problems
 
 # 1. [Arrays](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/array)
-An array is a structure of fixed size, which can hold items of the same data type. It can be an array of integers, an array of floating-point numbers, an array of strings or even an array of arrays (such as 2-dimensional arrays). Arrays are indexed, meaning that random access is possible.
+An **array** is a structure of fixed size, which can hold items of the same data type. It can be an array of integers, an array of floating-point numbers, an array of strings or even an array of arrays (such as 2-dimensional arrays). Arrays are indexed, meaning that random access is possible.
 
 ### Arrays operations
  - **Traverse** :  Go through the elements and print them. 
