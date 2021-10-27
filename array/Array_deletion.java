@@ -1,7 +1,7 @@
 import java.util.Arrays;
  
 
-class GFG {
+class Array_deletion {
  
 
     // Function to remove the element
