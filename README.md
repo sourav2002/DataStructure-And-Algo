@@ -1,10 +1,8 @@
 # DataStructure-And-Algorithm in JAVA
 
--------  
+## Solution of  DSA problems
 
-# Solution of  DSA problems
-
-# 1. [Arrays](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/array)
+## 1. [Arrays](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/array)
 An **array** is a structure of fixed size, which can hold items of the same data type. It can be an array of integers, an array of floating-point numbers, an array of strings or even an array of arrays (such as 2-dimensional arrays). Arrays are indexed, meaning that random access is possible.
 
 ### Arrays operations
@@ -17,7 +15,7 @@ An **array** is a structure of fixed size, which can hold items of the same data
 - Used as the building blocks to build other data structures such as array lists, heaps, hash tables, vectors and matrices.
 - Used for different sorting algorithms such as insertion sort, quick sort, bubble sort and merge sort.
 
-# 2. [Linked Lists](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/LinkedListPackage)
+## 2. [Linked Lists](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/LinkedListPackage)
 A **linked list** is a sequential structure that consists of a sequence of items in linear order which are linked to each other. Hence, you have to access data sequentially and random access is not possible. Linked lists provide a simple and flexible representation of dynamic sets.
 
 - Elements in a linked list are known as **nodes**.
@@ -52,7 +50,7 @@ A stack is a **LIFO** (Last In First Out — the element placed at last can be a
 ### Applications of stacks
 Used for expression evaluation (e.g.: a shunting-yard algorithm for parsing and evaluating mathematical expressions).
 Used to implement function calls in recursion programming.
-# 4. [Queues](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/queue)
+## 4. [Queues](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/queue)
 A queue is a **FIFO** (First In First Out — the element placed at first can be accessed at first) structure which can be commonly found in many programming languages. This structure is named as "queue" because it resembles a real-world queue — people waiting in a queue.
 ### Queue operations
 - **Enqueue**: Insert an element to the end of the queue.
@@ -61,7 +59,7 @@ A queue is a **FIFO** (First In First Out — the element placed at first can be
 Used to manage threads in multithreading.
 Used to implement queuing systems (e.g.: priority queues).
 
-# 5. [Hash Tables](https://github.com/sourav2002/DataStructure-And-Algo)
+## 5. [Hash Tables](https://github.com/sourav2002/DataStructure-And-Algo)
 A **Hash Table** is a data structure that stores values which have keys associated with each of them. Furthermore, it supports lookup efficiently if we know the key associated with the value. Hence it is very efficient in inserting and searching, irrespective of the size of the data.
 
 **Direct Addressing** uses the one-to-one mapping between the values and keys when storing in a table. However, there is a problem with this approach when there is a large number of key-value pairs. The table will be huge with so many records and may be impractical or even impossible to be stored, given the memory available on a typical computer. To avoid this issue we use **hash tables**.
@@ -77,7 +75,7 @@ In direct accessing, a value with key k is stored in slot k. Using the hash func
 - Used to implement associative arrays.
 - Used to implement the “set” data structure.
 
-# 6. [Trees](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/Tree)
+## 6. [Trees](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/Tree)
 A **tree** is a hierarchical structure where data is organized hierarchically and are linked together. This structure is different from a linked list whereas, in a linked list, items are linked in a linear order.
 Various types of trees have been developed throughout the past decades, in order to suit certain applications and meet certain constraints. Some examples are binary search tree, B tree, treap, red-black tree, splay tree, AVL tree and n-ary tree.
 ### Binary Search Trees
@@ -94,7 +92,7 @@ A binary search tree exhibits a unique property that distinguishes it from other
 - **Binary Search Tree:** used in many search applications where data are constantly entering and leaving.
 - **Heaps:** used by JVM (Java Virtual Machine) to store Java objects.
 - **Treaps:** used in wireless networking.
-# 7. [Heaps](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/Heap)
+## 7. [Heaps](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/Heap)
 A Heap is a special case of a binary tree where the parent nodes are compared to their children with their values and are arranged accordingly.
 
 Heaps can be of 2 types.
@@ -125,6 +123,11 @@ If a **vertex** is not connected to any other node in the graph, it is said to b
 - Used to represent web pages and links by search engines. Web pages on the internet are linked to each other by hyperlinks. Each page is a vertex and the hyperlink between two pages is an edge. Used for Page Ranking in Google.
 - Used to represent locations and routes in GPS. Locations are vertices and the routes connecting locations are edges. Used to calculate the shortest route between two locations.
 
-The reference is taken from [this link](https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42) - Sourav Saini😊
+<div align="center">
+The reference is taken from 
+</div>
 
 
+<div align="center">
+   <a href="https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42">this link</a> - Sourav Saini😊
+ </div>
