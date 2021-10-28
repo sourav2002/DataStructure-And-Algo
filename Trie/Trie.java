@@ -2,6 +2,7 @@ package Trie;
 
 public class Trie {
     private TrieNode root;
+    private static final int ALPHABET_SIZE = 26;
 
     public Trie() {
         root = new TrieNode(); // root is empty
@@ -12,7 +13,7 @@ public class Trie {
         private boolean isWord;
 
         public TrieNode() {
-            this.children = new TrieNode[26]; // storing english words a to z
+            this.children = new TrieNode[ALPHABET_SIZE]; // storing english words a to z
             this.isWord = false;
         }
     }//end of trie node class
@@ -21,8 +22,9 @@ public class Trie {
         if (word == null || word.isEmpty()) {
             throw new IllegalArgumentException("invalid input");
         }
-
         word = word.toLowerCase();
+
+
         // whenever we start inserting word, start from root node
         TrieNode current = root; // start with root node
         for (int i = 0; i < word.length(); i++) {
@@ -56,13 +58,55 @@ public class Trie {
         // because in insert method we end the word with isWord = true
         // another wise upper if condition will throw false for isWord
 
-        return current.isWord; // finally at the end of for loop, value of current will be last alphabet index and
+        return  (current != null && current.isWord); // finally at the end of for loop, value of current will be last alphabet index and
         // if it is present than it will surely give us true
+    }
+
+    // Returns true if root has no children, else false
+    static boolean isEmpty(TrieNode root)
+    {
+        for (int i = 0; i < ALPHABET_SIZE; i++)
+            if (root.children[i] != null)
+                return false;
+        return true;
+    }
+
+    public TrieNode remove(String word, int depth){
+        // If tree is empty
+        if (root == null)
+            return null;
+
+        // If last character of key is being processed    #BASE CASE
+        if (depth  == word.length()){
+            // This node is no more end of word after
+            // removal of given key
+            if (root.isWord)
+                root.isWord = false;
+
+            // If given is not prefix of any other word
+            if (isEmpty(root)) {
+                root = null;
+            }
+            return root;
+        }
+        // If not last character, recur for the child
+        // obtained using ASCII value
+        int index = word.charAt(depth) - 'a';
+        root.children[index] =
+                remove(word, depth + 1);
+
+        // If root does not have any child (its only child got
+        // deleted), and it is not end of another word.
+        if (isEmpty(root) && root.isWord == false){
+            root = null;
+        }
+
+        return root;
     }
 
     public static void main(String[] args) {
         Trie obj = new Trie();
-        
+
 //        obj.insert("car");
 //        obj.insert("cat");
 //        obj.insert("cab");
