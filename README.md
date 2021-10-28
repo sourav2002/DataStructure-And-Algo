@@ -125,7 +125,7 @@ If a **vertex** is not connected to any other node in the graph, it is said to b
 - Used to represent web pages and links by search engines. Web pages on the internet are linked to each other by hyperlinks. Each page is a vertex and the hyperlink between two pages is an edge. Used for Page Ranking in Google.
 - Used to represent locations and routes in GPS. Locations are vertices and the routes connecting locations are edges. Used to calculate the shortest route between two locations.
 
-# 9. Trie
+# 9. [Trie](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/Trie)
 A **trie** is a tree-like information retrieval data structure whose nodes store the letters of an alphabet. It is also known as a digital tree or a radix tree or prefix tree.
 
 **Trie** is an efficient information retrieval data structure. Using Trie, search complexities can be brought to optimal limit (key length). If we store keys in binary search tree, a well balanced BST will need time proportional to M * log N, where M is maximum string length and N is number of keys in tree. **Using Trie, we can search the key in O(M) time**.
