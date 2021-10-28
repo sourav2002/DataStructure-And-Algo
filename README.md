@@ -106,7 +106,7 @@ Heaps can be of 2 types.
 - Used to implement priority queues as the priority values can be ordered according to the heap property where the heap can be implemented using an array.
 - Queue functions can be implemented using heaps within O(log n) time.
 - Used to find the kᵗʰ smallest (or largest) value in a given array.
-# 8. Graphs
+# 8. [Graphs](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/graph)
 A **graph** consists of a finite set of **vertices** or nodes and a set of **edges** connecting these vertices.
 
 The order of a graph is the number of vertices in the graph. The size of a graph is the number of edges in the graph.
