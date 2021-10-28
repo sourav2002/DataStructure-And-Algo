@@ -125,6 +125,36 @@ If a **vertex** is not connected to any other node in the graph, it is said to b
 - Used to represent web pages and links by search engines. Web pages on the internet are linked to each other by hyperlinks. Each page is a vertex and the hyperlink between two pages is an edge. Used for Page Ranking in Google.
 - Used to represent locations and routes in GPS. Locations are vertices and the routes connecting locations are edges. Used to calculate the shortest route between two locations.
 
+# 9. Trie
+A **trie** is a tree-like information retrieval data structure whose nodes store the letters of an alphabet. It is also known as a digital tree or a radix tree or prefix tree.
+
+**Trie** is an efficient information retrieval data structure. Using Trie, search complexities can be brought to optimal limit (key length). If we store keys in binary search tree, a well balanced BST will need time proportional to M * log N, where M is maximum string length and N is number of keys in tree. **Using Trie, we can search the key in O(M) time**.
+
+### Types of Trie
+**1. Standard Trie** : It is an ordered tree like data structure.
+- Each node but the root is labeled with a character.
+- The children of a node are alphabetically ordered.
+- The The paths from the external node to the root yield the strings of S.
+- The last node of every key or word is used to mark the end of word or node.
+
+**2. Compressed Trie** : It is used to achieve space optimization. A Compressed Trie is an advanced version of the standard trie.
+- Tires with nodes of degree at least 2
+- It consists of grouping, re-grouping and un-grouping of keys of characters.
+- While performing the **insertion** operation, it may be required to **un-group** the already grouped characters.
+- While performing the **deletion** operation, it may be required to **re-group** the already grouped characters.
+- Obtained by standard tries by compressing  chains of redundant  nodes.
+
+**3. Suffix Trie** : A Suffix Trie is an advanced version of the compressed trie.
+- A suffix tire is a compressed trie for all the suffixes of a text.
+- Suffix tire are a space-efficient data structure to store a string that allows many kinds of queries to be answered quickly.
+### Application of Trie
+With Trie, we can insert and find strings in O(L) time where L represent the length of a single word. This is obviously faster than BST. This is also faster than Hashing because of the ways it is implemented. We do not need to compute any hash function. Another advantage of Trie is, we can easily print all words in alphabetical order which is not easily possible with hashing.
+1. Auto Complete
+2. Spell Checkers
+3. Longest Prefix Matching
+4. Browser History
+
+
 The reference is taken from [this link](https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42) - Sourav Saini😊
 
 
