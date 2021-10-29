@@ -1,3 +1,5 @@
+package DynamicProgramming;
+
 public class MinimumOperationsToTransformStrings {
 
 	public static int editOperations(String s1,String s2,int n,int m) {

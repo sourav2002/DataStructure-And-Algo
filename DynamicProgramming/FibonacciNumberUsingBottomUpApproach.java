@@ -15,8 +15,8 @@ public class FibonacciNumberUsingBottomUpApproach {
 
 
     public int fibo(int number){
-        // using table array to store ans of sub problem  .. (memorization array)
-        int[] table = new int[number+1];// we are taking n+1 because we start from 0 so for 5th number array should be of size 6
+        // using table array to store ans of sub problem
+        int[] table = new int[number+1];// we are taking n+1 because we start from 0 so for 5th number, array should be of size 6
         table[0] = 0;
         table[1] = 1;
         for (int i= 2; i <= number; i++){
