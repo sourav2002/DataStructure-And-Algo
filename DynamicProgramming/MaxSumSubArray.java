@@ -27,14 +27,14 @@ public class MaxSumSubArray {
             }
 
             // update max sum if current max became grater than maxSum So Far
-            if (maxSumSoFar < currentMax ){
-                maxSumSoFar = currentMax ;
+            if (maxSumSoFar < currentMax) {
+                maxSumSoFar = currentMax;
             }
         }
         return maxSumSoFar;
     }
 
-    public static int[] printMaxSumSubArray(int[] arr){
+    public static int[] printMaxSumSubArray(int[] arr) {
         // base case
         if (arr == null || arr.length <= 1) {
             return arr;
@@ -49,20 +49,20 @@ public class MaxSumSubArray {
         // stores starting index of a positive-sum sequence when element decides to start its own array
         int beginning = 0;
 
-        for (int i =0; i< arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             currentMax = currentMax + arr[i];
-            if (currentMax < arr[i]){
+            if (currentMax < arr[i]) {
                 currentMax = arr[i];
                 beginning = i;   // beg is used to store the beginning index of new sub array
             }
-            if (maxSoFar < currentMax){
+            if (maxSoFar < currentMax) {
                 maxSoFar = currentMax;
                 start = beginning; // now update the start point with beg which is updated beginning point of new sub array
                 end = i; // store the current index as end point
             }
         }
         // now print the array using collection by using start and end point
-            return Arrays.copyOfRange(arr, start, end + 1); // we are adding +1
+        return Arrays.copyOfRange(arr, start, end + 1); // we are adding +1
         // bcz array starts from 0 and starting point is included and ending value is excluded
     }
 
