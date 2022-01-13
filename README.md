@@ -61,7 +61,7 @@ A queue is a **FIFO** (First In First Out — the element placed at first can be
 Used to manage threads in multithreading.
 Used to implement queuing systems (e.g.: priority queues).
 
-# 5. [Hash Tables](https://github.com/sourav2002/DataStructure-And-Algo)
+# 5. [Hash Tables](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/hashing)
 A **Hash Table** is a data structure that stores values which have keys associated with each of them. Furthermore, it supports lookup efficiently if we know the key associated with the value. Hence it is very efficient in inserting and searching, irrespective of the size of the data.
 
 **Direct Addressing** uses the one-to-one mapping between the values and keys when storing in a table. However, there is a problem with this approach when there is a large number of key-value pairs. The table will be huge with so many records and may be impractical or even impossible to be stored, given the memory available on a typical computer. To avoid this issue we use **hash tables**.
