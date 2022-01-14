@@ -1,5 +1,7 @@
 package hashing;
 
+import java.util.HashMap;
+
 public class HashTable {
     private HashNode[] buckets;
     private final int numOfBuckets;
@@ -13,12 +15,12 @@ public class HashTable {
         this.numOfBuckets = capacity;
         buckets = new HashNode[capacity];
     }
-    private class HashNode{
-        private Integer key; // can be generic
-        private String value; // can be generic
+    private class HashNode<K, V>{
+        private K key; // can be generic
+        private V value; // can be generic
         private HashNode next;
 
-        public HashNode(Integer key, String value){
+        public HashNode(K key, V value){
             this.key = key;
             this.value = value;
         }
@@ -35,6 +37,16 @@ public class HashTable {
     // hash function
     public int getBucketIndex(Integer key){
         return key % buckets.length;
+    }
+
+    // hash function if the key is a String
+    public int hashForString(String key){
+        // Traverse the string
+        int hash = 0;
+        for (int i = 0; i < key.length(); i++) {
+            hash += ((int)key.charAt(i)) * Math.pow(  31, (key.length()-(i+1)  ));
+        }
+        return hash %10;
     }
 
     // 3 main methods
@@ -67,7 +79,7 @@ public class HashTable {
           HashNode head = buckets[bucketIndex];
           while (head != null){
               if (head.key.equals(key)){
-                  return head.value;
+                  return head.value.toString();
               }
               head = head.next;
           }
@@ -95,7 +107,7 @@ public class HashTable {
         }else {
             prev.next = head.next;
         }
-        return head.value;
+        return head.value.toString();
     }
 
     public static void main(String[] args) {
@@ -110,10 +122,12 @@ public class HashTable {
 
         System.out.println("get "+table.get(101));
         System.out.println("get "+table.get(1));
+        HashMap n = new HashMap();
         System.out.println("removed "+table.remove(1));
         System.out.println("get "+table.get(1));
         System.out.println("get "+table.get(21));
 
+        System.out.println(table.hashForString("a"));
     }
 
 }
