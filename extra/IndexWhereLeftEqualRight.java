@@ -1,5 +1,7 @@
 package extra;
 
+import java.util.HashSet;
+
 public class IndexWhereLeftEqualRight {
     public static void main(String [] args){
         int [] a = {2,4,3,1,5};

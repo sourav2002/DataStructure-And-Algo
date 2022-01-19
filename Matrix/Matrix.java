@@ -1,3 +1,5 @@
+package Matrix;
+
 import java.util.*;
 
 public class Matrix {
@@ -5,19 +7,19 @@ public class Matrix {
     public static void main(String[] args) throws Exception {
 
         Scanner sc = new Scanner(System.in);
-        int line, collumn;
+        int line, column;
         line = 3;
-        collumn = 3;
+        column = 3;
 
-        Matriz matriz1 = new Matriz(line, collumn);
-        matriz1.insert(line, collumn);
-        Matriz matriz2 = new Matriz(line, collumn);
-        matriz2.insert(line, collumn);
-        matriz1.showMainDiagonal();
-        matriz1.showSecondDiagonal();
-        matriz1.sum(matriz2);
-        Matriz multi = new Matriz(line, collumn);
-        multi = matriz1.multiplication(matriz2);
+        Matriz matrix1 = new Matriz(line, column);
+        matrix1.insert(line, column);
+        Matriz matrix2 = new Matriz(line, column);
+        matrix2.insert(line, column);
+        matrix1.showMainDiagonal();
+        matrix1.showSecondDiagonal();
+        matrix1.sum(matrix2);
+        Matriz multi = new Matriz(line, column);
+        multi = matrix1.multiplication(matrix2);
         multi.print();
 
     }
