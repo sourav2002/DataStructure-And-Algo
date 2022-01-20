@@ -11,7 +11,7 @@ public class FindDuplicate {
         int[] arr = {2, 1, 3, 2};
         Arrays.sort(arr);
 //        find(arr);
-        System.out.println("duplicate no. is : "+find2(arr));
+        System.out.println("duplicate no. is : " + find2(arr));
     }
 
     // time complexity is O(n log n )
@@ -35,7 +35,7 @@ public class FindDuplicate {
         for (int i = 0; i < arr.length; i++) {
             //Return the absolute value
             int index = Math.abs(arr[i]);
-            System.out.println("index : "+index);// just for understanding
+            System.out.println("index : " + index);// just for understanding
 
 //            if the number present in this index is negative its mean we have found duplicate
             if (arr[index] < 0) {

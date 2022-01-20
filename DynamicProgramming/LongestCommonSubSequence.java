@@ -21,7 +21,7 @@ public class LongestCommonSubSequence {
 
     // Dynamic programming
     // i and j two parameters are changing, so we need 2d matrix (m x n) for memoization
-    public static int lcs(int i, int j, String s1, String s2, int[][] memo ) {
+    public static int lcs(int i, int j, String s1, String s2, int[][] memo) {
 
         //base case
         if (i >= s1.length() || j >= s2.length()) {
@@ -34,11 +34,10 @@ public class LongestCommonSubSequence {
 
         if (s1.charAt(i) == s2.charAt(j)) {  // if char match
             return 1 + lcs(i + 1, j + 1, s1, s2, memo);
-        }
-        else {  // if both are not same
+        } else {  // if both are not same
             int left = lcs(i + 1, j, s1, s2, memo);
             int right = lcs(i, j + 1, s1, s2, memo);
-            return memo[i][j] = Math.max(left,right);
+            return memo[i][j] = Math.max(left, right);
         }
     }
 
@@ -50,24 +49,22 @@ public class LongestCommonSubSequence {
         int m = s2.length();
 
         int[][] memo = new int[1000][1000];
-        for(int i = 0; i < 1000; i++)
-        {
-            for(int j = 0; j < 1000; j++)
-            {
+        for (int i = 0; i < 1000; i++) {
+            for (int j = 0; j < 1000; j++) {
                 memo[i][j] = -1;
             }
         }
         long start = System.currentTimeMillis();
-        System.out.println("Longest common subsequence is "+lcs(0,0, s1,s2,memo));
+        System.out.println("Longest common subsequence is " + lcs(0, 0, s1, s2, memo));
         long end = System.currentTimeMillis();
-        System.out.println("time taken by dp - "+ (end - start)+"ms");
+        System.out.println("time taken by dp - " + (end - start) + "ms");
 
         System.out.println("\n");
 //   using recursion
         long recSt = System.currentTimeMillis();
-        System.out.println("Longest common subsequence with recursion only is "+recursivelcs(0, 0, s1, s2));
+        System.out.println("Longest common subsequence with recursion only is " + recursivelcs(0, 0, s1, s2));
         long recEnd = System.currentTimeMillis();
-        System.out.println("Time taken by recursive function is - "+ (recEnd - recSt)+"ms");
+        System.out.println("Time taken by recursive function is - " + (recEnd - recSt) + "ms");
 
     }
 }

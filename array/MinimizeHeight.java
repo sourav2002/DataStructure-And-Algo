@@ -30,7 +30,7 @@ public class MinimizeHeight {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        System.out.println("Minimum sum is : "+MinimumSum(arr, k, n));
+        System.out.println("Minimum sum is : " + MinimumSum(arr, k, n));
     }
 
     private static int MinimumSum(int[] arr, int k, int n) {

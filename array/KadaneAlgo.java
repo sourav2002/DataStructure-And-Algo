@@ -10,8 +10,7 @@ package array;
 
 public class KadaneAlgo {
 
-    static int maxSubArraySum(int[] arr)
-    {
+    static int maxSubArraySum(int[] arr) {
         int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
 
         for (int j : arr) {
@@ -23,10 +22,11 @@ public class KadaneAlgo {
         }
         return max_so_far;
     }
-    public static void main(String[] args){
 
-        int[] arr = {1,2,3,-9,5};
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, -9, 5};
         maxSubArraySum(arr);
-        System.out.println("max sum is : "+maxSubArraySum(arr));
+        System.out.println("max sum is : " + maxSubArraySum(arr));
     }
 }

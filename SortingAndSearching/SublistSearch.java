@@ -2,18 +2,10 @@ package SortingAndSearching;
 
 public class SublistSearch {
 
-    // A Linked List node
-    static class Node
-    {
-        int data;
-        Node next;
-    };
-
     // Returns true if first list is
 // present in second list
     static boolean findList(Node first,
-                            Node second)
-    {
+                            Node second) {
         Node ptr1 = first, ptr2 = second;
 
         // If both linked lists are empty,
@@ -29,16 +21,14 @@ public class SublistSearch {
 
         // Traverse the second list by
         // picking nodes one by one
-        while (second != null)
-        {
+        while (second != null) {
             // Initialize ptr2 with
             // current node of second
             ptr2 = second;
 
             // Start matching first list
             // with second list
-            while (ptr1 != null)
-            {
+            while (ptr1 != null) {
                 // If second list becomes empty and
                 // first not then return false
                 if (ptr2 == null)
@@ -46,8 +36,7 @@ public class SublistSearch {
 
                     // If data part is same, go to next
                     // of both lists
-                else if (ptr1.data == ptr2.data)
-                {
+                else if (ptr1.data == ptr2.data) {
                     ptr1 = ptr1.next;
                     ptr2 = ptr2.next;
                 }
@@ -70,28 +59,26 @@ public class SublistSearch {
         return false;
     }
 
+    ;
+
     /* Function to print nodes in a given linked list */
-    static void printList(Node node)
-    {
-        while (node != null)
-        {
+    static void printList(Node node) {
+        while (node != null) {
             System.out.printf("%d ", node.data);
             node = node.next;
         }
     }
 
     // Function to add new node to linked lists
-    static Node newNode(int key)
-    {
+    static Node newNode(int key) {
         Node temp = new Node();
-        temp.data= key;
+        temp.data = key;
         temp.next = null;
         return temp;
     }
 
     // Driver Code
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
     /* Let us create two linked lists to test
     the above functions. Created lists shall be
         a: 1->2->3->4
@@ -108,7 +95,7 @@ public class SublistSearch {
         b.next.next.next.next = newNode(3);
         b.next.next.next.next.next = newNode(4);
 
-        if(findList(a, b) == true)
+        if (findList(a, b) == true)
             System.out.println("LIST FOUND");
         else
             System.out.println("LIST NOT FOUND");
@@ -118,5 +105,11 @@ public class SublistSearch {
         System.out.println("second list : ");
         printList(b);
         System.out.println();
+    }
+
+    // A Linked List node
+    static class Node {
+        int data;
+        Node next;
     }
 }

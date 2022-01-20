@@ -63,7 +63,7 @@ public class CycleDetectionDFS {
 
     private boolean checkForCycleDfs(boolean[] visited, ArrayList<ArrayList<Integer>> adj, int currentNode) {
         Stack<Node> s = new Stack<>();
-        s.add(new Node(currentNode,-1));
+        s.add(new Node(currentNode, -1));
         visited[currentNode] = true;
         while (!s.isEmpty()) {
             int node = s.peek().first;
@@ -72,9 +72,9 @@ public class CycleDetectionDFS {
 
             for (Integer it : adj.get(node)) {
                 if (visited[it] == false) {
-                    s.add(new Node(it,node));
+                    s.add(new Node(it, node));
                     visited[it] = true;
-                } else if (prev != it){
+                } else if (prev != it) {
                     return true;
                 }
             }

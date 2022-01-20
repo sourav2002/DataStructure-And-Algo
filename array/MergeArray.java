@@ -15,7 +15,7 @@ public class MergeArray {
         merged2(arr1, arr2);
 //        merged3(arr1, arr2);
     }
-    
+
     // using 3rd array --space complexity will be
     private static void merged1(int[] arr1, int[] arr2) {
         int size1 = arr1.length;

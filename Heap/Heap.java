@@ -20,8 +20,8 @@ class Heap {
 
         Heap ob = new Heap();
 //        ob.sort(arr);
-        ob.heapify(arr,n,0);
-        ob.deleteRoot(arr,n);
+        ob.heapify(arr, n, 0);
+        ob.deleteRoot(arr, n);
 
         System.out.println("Sorted array is");
         printArray(arr);
@@ -31,7 +31,7 @@ class Heap {
         n = n + 1;
         arr[n - 1] = key;
         // Find parent
-        int i = n-1;
+        int i = n - 1;
         int parent = (i - 1) / 2;
 
         if (arr[parent] > 0) {
@@ -51,8 +51,7 @@ class Heap {
     }
 
     // Function to delete the root from Heap
-    int deleteRoot(int arr[], int n)
-    {
+    int deleteRoot(int arr[], int n) {
         // Get the last element
         int lastElement = arr[n - 1];
 

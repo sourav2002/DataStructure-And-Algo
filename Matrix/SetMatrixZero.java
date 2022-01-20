@@ -9,9 +9,19 @@ package Matrix;
         Output: [[1,0,1],[0,0,0],[1,0,1]]
         */
 
+
+/*
+
+1st of all, we will traverse matrix and update [i] [0] and [0] [j] with 0 if we find any zero in the matrix
+according to i and j current values.
+special case - check if outer row or col means 0,j or i,0 having a 0 at any index
+now traverse the matrix in reverse order to prevent special case
+and if we find any 0 at any index then update every index of  row and col with 0
+ */
+
 public class SetMatrixZero {
     public static void main(String[] args) {
-        int [][] matrix={{1, 1, 2, 1}, {3, 0, 5, 2}, {1, 3, 0, 5}, {0,0,0,1}};
+        int[][] matrix = {{1, 1, 2, 1}, {3, 0, 5, 2}, {1, 3, 0, 5}, {0, 0, 0, 1}};
 //        int [][] matrix={{1, 0,0,0}, {3, 0, 5, 2}, {1, 3, 0, 5}, {1,1,1,1}};
 //        int [][] matrix={{1, 1, 2, 1}, {3, 1, 5, 2}, {0, 3, 1, 5}, {1,1,1,1}};
         setZeroes(matrix);
@@ -24,28 +34,28 @@ public class SetMatrixZero {
         }
     }
 
-    private static void setZeroes(int[][] matrix){
+    private static void setZeroes(int[][] matrix) {
         int col0 = 1, row0 = 1, rows = matrix.length, cols = matrix[0].length;
-        for (int i =0; i< rows; i++){
+        for (int i = 0; i < rows; i++) {
             if (matrix[i][0] == 0) col0 = 0;
-            for (int j =0; j< cols;j++){
+            for (int j = 0; j < cols; j++) {
                 if (matrix[0][j] == 0) row0 = 0;
                 if (col0 != 0) { // do not update index = 0 if col0 = 0
                     if (matrix[i][j] == 0) {
-                        matrix[i][0] = matrix[0][j] = 0;
+                        matrix[i][0] = matrix[0][j] = 0;     // imp
                     }
                 }
             }
         }
 
         // now traverse the matrix in reverse order
-        for (int i = rows -1; i>=0; i--){
-            for (int j = cols-1; j>=0; j--) {
+        for (int i = rows - 1; i >= 0; i--) {
+            for (int j = cols - 1; j >= 0; j--) {
                 if (matrix[i][0] == 0 || matrix[0][j] == 0) {
-                    matrix[i][j] = 0;
+                    matrix[i][j] = 0; // imp
                 }
             }//end of inner loop
-            if (col0 == 0){ // we are doing row or col = 0 separately because initially we ignore it in 1st traversal
+            if (col0 == 0) { // we are doing row or col = 0 separately because initially we ignore it in 1st traversal
                 matrix[i][0] = 0;
             }
         }// end of outer loop

@@ -6,17 +6,17 @@ import java.util.Scanner;
 public class AscendingOrder {
 
     static void sort(int arr[], int size) {
-        for (int i = 0; i < size-1; i++) {
+        for (int i = 0; i < size - 1; i++) {
             boolean sorted = true;
 
-            for (int j = 0; j < size-1-i; j++) {
+            for (int j = 0; j < size - 1 - i; j++) {
                 if (arr[j + 1] < arr[j]) {
                     int temp;
                     temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
 
-                    sorted= false;
+                    sorted = false;
                 }
             }
             if (sorted) break;
@@ -26,8 +26,8 @@ public class AscendingOrder {
     //print method
     static void printArray(int arr[]) {
         System.out.println("sorted array is: ");
-        for (int i=0;i<arr.length;i++) {
-            System.out.print(arr[i]+ " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 

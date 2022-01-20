@@ -1,6 +1,6 @@
 package IO;
 
-import java.io.*;
+import java.io.FileInputStream;
 
 public class DataStreamExample {
     public static void main(String args[]) {

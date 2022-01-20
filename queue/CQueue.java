@@ -11,6 +11,39 @@ public class CQueue {
         rear = -1;
     }
 
+    public static void main(String[] args) {
+
+        CQueue q = new CQueue();
+
+        // Fails because front = -1
+        q.deQueue();
+
+        q.enQueue(1);
+        q.enQueue(2);
+        q.enQueue(3);
+        q.enQueue(4);
+        q.enQueue(5);
+
+        // Fails to enqueue because front == 0 && rear == SIZE - 1
+        q.enQueue(6);
+
+        q.display();
+
+        int elem = q.deQueue();
+
+        if (elem != -1) {
+            System.out.println("Deleted Element is " + elem);
+        }
+        q.display();
+
+        q.enQueue(7);
+
+        q.display();
+
+        // Fails to enqueue because front == rear + 1
+        q.enQueue(8);
+    }
+
     // Check if the queue is full
     boolean isFull() {
         if (front == 0 && rear == SIZE - 1) {
@@ -54,8 +87,7 @@ public class CQueue {
             if (front == rear) {
                 front = -1;
                 rear = -1;
-            } /* Q has only one element, so we reset the queue after deleting it. */
-            else {
+            } /* Q has only one element, so we reset the queue after deleting it. */ else {
                 front = (front + 1) % SIZE;
             }
             return (element);
@@ -75,39 +107,6 @@ public class CQueue {
             System.out.println(items[i]);
             System.out.println("Rear -> " + rear);
         }
-    }
-
-    public static void main(String[] args) {
-
-        CQueue q = new CQueue();
-
-        // Fails because front = -1
-        q.deQueue();
-
-        q.enQueue(1);
-        q.enQueue(2);
-        q.enQueue(3);
-        q.enQueue(4);
-        q.enQueue(5);
-
-        // Fails to enqueue because front == 0 && rear == SIZE - 1
-        q.enQueue(6);
-
-        q.display();
-
-        int elem = q.deQueue();
-
-        if (elem != -1) {
-            System.out.println("Deleted Element is " + elem);
-        }
-        q.display();
-
-        q.enQueue(7);
-
-        q.display();
-
-        // Fails to enqueue because front == rear + 1
-        q.enQueue(8);
     }
 
 }

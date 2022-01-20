@@ -2,7 +2,7 @@ package SortingAndSearching;
 
 public class HeapSort {
 
-    static void heapSort(int[] arr, int n){
+    static void heapSort(int[] arr, int n) {
 
         // Build max heap
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -52,7 +52,7 @@ public class HeapSort {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 12, 9, 5, 6, 10 };
+        int arr[] = {1, 12, 9, 5, 6, 10};
 
         HeapSort hs = new HeapSort();
         heapSort(arr, arr.length);

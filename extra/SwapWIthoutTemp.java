@@ -13,7 +13,7 @@ public class SwapWIthoutTemp {
 //        a = a.substring(b.length());
 //        System.out.println(a);
 
-         // 2nd way with Math
+        // 2nd way with Math
 //        int x = 4;
 //        int y = 6;
 //

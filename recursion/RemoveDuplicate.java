@@ -3,7 +3,7 @@ package recursion;
 import java.util.Scanner;
 
 public class RemoveDuplicate {
-    public static void removeDuplicate(String str ){
+    public static void removeDuplicate(String str) {
 
     }
 

@@ -2,7 +2,7 @@ package extra;
 
 public class customException {
 
-//    public static void aMethod() throws Exception{
+    //    public static void aMethod() throws Exception{
 //        try {
 //            throw new Exception();
 //        }finally {

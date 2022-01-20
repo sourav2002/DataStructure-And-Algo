@@ -1,10 +1,11 @@
 package IO;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class ByteOutputstream {
-    public  static void main(String [] args) throws IOException {
-        try{
+    public static void main(String[] args) throws IOException {
+        try {
             FileOutputStream fout = new FileOutputStream("/home/sourav/Desktop/output.txt");
             String s = "my name is sourav \n";
             byte b[] = s.getBytes();// converting string into byte array
@@ -13,7 +14,7 @@ public class ByteOutputstream {
             fout.write(b);
             fout.close();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

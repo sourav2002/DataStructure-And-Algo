@@ -120,7 +120,7 @@ public class GraphWithList {
         // if not then do the same step for adjacent node
         for (int w : adj[v]) {
             if (!visited[w]) {
-                dfs(w , visited);// this time we passed w (adjacent node of v)
+                dfs(w, visited);// this time we passed w (adjacent node of v)
             }
         }
     }

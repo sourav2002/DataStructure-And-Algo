@@ -1,15 +1,15 @@
+package array;
+
 import java.util.Arrays;
- 
+
 
 class Array_deletion {
- 
+
 
     // Function to remove the element
 
-    public static int[] removeTheElement(int[] arr, int index)
+    public static int[] removeTheElement(int[] arr, int index) {
 
-    {
- 
 
         // If the array is empty
 
@@ -19,25 +19,25 @@ class Array_deletion {
 
         if (arr == null || index < 0
 
-            || index >= arr.length) {
- 
+                || index >= arr.length) {
+
 
             return arr;
 
         }
- 
+
 
         // Create another array of size one less
 
         int[] anotherArray = new int[arr.length - 1];
- 
+
 
         // Copy the elements except the index
 
         // from original array to the other array
 
         for (int i = 0, k = 0; i < arr.length; i++) {
- 
+
 
             // if the index is
 
@@ -48,7 +48,7 @@ class Array_deletion {
                 continue;
 
             }
- 
+
 
             // if the index is not
 
@@ -57,50 +57,49 @@ class Array_deletion {
             anotherArray[k++] = arr[i];
 
         }
- 
+
 
         // return the resultant array
 
         return anotherArray;
 
     }
-	public static void main(String[] args)
 
-    {
- 
+    public static void main(String[] args) {
+
 
         // Get the array
 
-        int[] arr = { 1, 2, 3, 4, 5 };
- 
+        int[] arr = {1, 2, 3, 4, 5};
+
 
         // Print the resultant array
 
         System.out.println("Original Array: "
 
-                           + Arrays.toString(arr));
- 
+                + Arrays.toString(arr));
+
 
         // Get the specific index
 
         int index = 2;
- 
+
 
         // Print the index
 
         System.out.println("Index to be removed: " + index);
- 
+
 
         // Remove the element
 
         arr = removeTheElement(arr, index);
- 
+
 
         // Print the resultant array
 
         System.out.println("Resultant Array: "
 
-                           + Arrays.toString(arr));
+                + Arrays.toString(arr));
 
     }
 }

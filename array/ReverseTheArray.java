@@ -16,27 +16,28 @@ import java.util.Scanner;
 public class ReverseTheArray {
 
     //print method
-    static void printArray(int arr[]){
+    static void printArray(int arr[]) {
         System.out.println("current array is: ");
-        for (int i: arr){
+        for (int i : arr) {
             System.out.print(i + " ");
         }
         System.out.println();
     }
 
     //reverse method
-    static void reverseArray(int arr[], int ith, int jth){
-        while (ith < jth){
+    static void reverseArray(int arr[], int ith, int jth) {
+        while (ith < jth) {
             int temp;
             temp = arr[ith];
-            arr[ith]  = arr[jth];
+            arr[ith] = arr[jth];
             arr[jth] = temp;
             ith++;
             jth--;
         }
     }
+
     // main method
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter size : ");
         int size = input.nextInt();
@@ -46,7 +47,7 @@ public class ReverseTheArray {
             arr[i] = value;
         }
         printArray(arr);
-        reverseArray(arr,0,(arr.length-1));
+        reverseArray(arr, 0, (arr.length - 1));
         System.out.println("After Rotating: ");
         printArray(arr);
 

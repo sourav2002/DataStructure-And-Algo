@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class SelectionSort {
 
     // sort method
-    public  static void sort(int[] arr, int size) {
+    public static void sort(int[] arr, int size) {
         for (int a = 0; a < size - 1; a++) {
             int minIndex = a;
-            for (int b = a+1; b < size; b++) {
+            for (int b = a + 1; b < size; b++) {
                 // check if current index element is less then minimum index element
                 if (arr[b] < arr[minIndex]) {
                     minIndex = b;

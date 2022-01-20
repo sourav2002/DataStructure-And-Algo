@@ -10,8 +10,8 @@ public class MergeSort {
         int[] inputArr = {48, 36, 13, 52, 19, 94, 21};
         MergeSort ms = new MergeSort();
         ms.sort(inputArr);
-        for (int i : inputArr){
-            System.out.print(i+" ");
+        for (int i : inputArr) {
+            System.out.print(i + " ");
         }
     }
 
@@ -19,46 +19,45 @@ public class MergeSort {
         this.array = inputArr;
         this.length = inputArr.length;
         this.tempMergeArr = new int[length];
-        divideArray(0,length-1);
+        divideArray(0, length - 1);
 
     }
 
-    public void divideArray(int low, int high){
+    public void divideArray(int low, int high) {
 
-        if (low < high){
-            int middle = low+(high-low)/2;
+        if (low < high) {
+            int middle = low + (high - low) / 2;
 
             // it will sort the left side of an array
-            divideArray(low,middle);
+            divideArray(low, middle);
 
             // it will sort the right side of array
-            divideArray(middle+1,high);
+            divideArray(middle + 1, high);
 
-            mergeArray(low,middle,high);
+            mergeArray(low, middle, high);
         }
     }
 
-    public void mergeArray(int lowerindex, int middle, int higherindex){
+    public void mergeArray(int lowerindex, int middle, int higherindex) {
 
-        for (int i = lowerindex; i<= higherindex; i++){
-            tempMergeArr[i]= array[i];
+        for (int i = lowerindex; i <= higherindex; i++) {
+            tempMergeArr[i] = array[i];
         }
 
         int i = lowerindex;
-        int j = middle+1;
+        int j = middle + 1;
         int k = lowerindex;
-        while (i<= middle && j<= higherindex){
-            if (tempMergeArr[i]<= tempMergeArr[j]){
-                array[k]= tempMergeArr[i];
+        while (i <= middle && j <= higherindex) {
+            if (tempMergeArr[i] <= tempMergeArr[j]) {
+                array[k] = tempMergeArr[i];
                 i++;
-            }
-            else {
-                array[k]= tempMergeArr[j];
+            } else {
+                array[k] = tempMergeArr[j];
                 j++;
             }
             k++;
         }
-        while (i<= middle){
+        while (i <= middle) {
             array[k] = tempMergeArr[i];
             k++;
             i++;

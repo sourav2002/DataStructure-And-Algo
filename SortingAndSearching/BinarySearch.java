@@ -33,7 +33,7 @@ public class BinarySearch {
                 // in right subarray
                 return binarySearch(arr, mid + 1, r, x);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return -1;
         }
 

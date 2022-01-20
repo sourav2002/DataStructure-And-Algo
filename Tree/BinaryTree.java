@@ -46,9 +46,9 @@ public class BinaryTree<E> {
         bt.levelOrder(bt.root);
         System.out.println();
 
-        System.out.println("Max value is : "+ bt.findMax(bt.root));
+        System.out.println("Max value is : " + bt.findMax(bt.root));
 
-        System.out.println("max depth is : "+bt.maxDepth(bt.root));
+        System.out.println("max depth is : " + bt.maxDepth(bt.root));
     }
 
     public void createBinaryTree() {
@@ -69,27 +69,26 @@ public class BinaryTree<E> {
 
     }
 
-    public int findMax(TreeNode<Integer> root){
-        if (root == null){
+    public int findMax(TreeNode<Integer> root) {
+        if (root == null) {
             return Integer.MIN_VALUE;
         }
         int result = root.data;
         int left = findMax(root.left);
-        int right= findMax(root.right);
-        if (left  > result ){
+        int right = findMax(root.right);
+        if (left > result) {
             result = left;
         }
-        if (right > result){
+        if (right > result) {
             result = right;
         }
         return result;
     }
-    int maxDepth(TreeNode node)
-    {
+
+    int maxDepth(TreeNode node) {
         if (node == null)
             return 0;
-        else
-        {
+        else {
             /* compute the depth of each subtree */
             int lDepth = maxDepth(node.left);
             int rDepth = maxDepth(node.right);
@@ -222,7 +221,7 @@ public class BinaryTree<E> {
 
     // node class
     static class TreeNode<E> {
-        private  E data;
+        private E data;
         private TreeNode<E> left;
         private TreeNode<E> right;
 

@@ -6,7 +6,7 @@ public class RadixSort {
 
     static void radixSort(int[] arr, int n) {
         // find the maximum number to know the number of digits
-        int max =getMax(arr,n);
+        int max = getMax(arr, n);
         int div;
 
         // The loop applies the count sort to the n th digit of the elements
@@ -19,9 +19,9 @@ public class RadixSort {
     }
 
     private static void countSort(int[] arr, int size, int div) {
-        int output[] = new int[size+1];
+        int output[] = new int[size + 1];
         int max = getMax(arr, size);
-        int count[] = new int[max+1]; // because we have max 10 unique digits possible in mathematics
+        int count[] = new int[max + 1]; // because we have max 10 unique digits possible in mathematics
         int i;
 
         // storing frequency of digits in count array
@@ -58,7 +58,7 @@ public class RadixSort {
     public static void main(String[] args) {
 
 
-        int[] arr = {3, 5, 24, 564, 23, 6,3,6,5,24, 1335, 45, 254};
+        int[] arr = {3, 5, 24, 564, 23, 6, 3, 6, 5, 24, 1335, 45, 254};
         radixSort(arr, arr.length);
         System.out.println(Arrays.toString(arr));
     }

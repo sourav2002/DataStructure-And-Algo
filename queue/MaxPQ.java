@@ -104,11 +104,11 @@ public class MaxPQ {
             int i = 1;
             while (i < n) {
                 int largest;
-                if (i * 2 < n ) {
+                if (i * 2 < n) {
                     int left = i * 2;
                     int right = i * 2 + 1;
                     largest = heap[left] > heap[right] ? 2 * i : 2 * i + 1;
-                } else if (i*2+1 <= n) {
+                } else if (i * 2 + 1 <= n) {
                     largest = i * 2;
                 } else {
                     largest = i;

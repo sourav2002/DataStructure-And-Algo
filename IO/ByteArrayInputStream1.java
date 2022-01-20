@@ -6,7 +6,7 @@ import java.io.IOException;
 public class ByteArrayInputStream1 {
     public static void main(String[] args) throws IOException {
         byte[] buf = new byte[128];
-        for (byte i = 0; i <127; i++){
+        for (byte i = 0; i < 127; i++) {
             buf[i] = i;
         }
 

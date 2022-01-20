@@ -5,23 +5,24 @@ public class FirstLastOccurrence {
 
     static int first = -1;
     static int last = -1;
-    public static void firstLastOccurrence(String st, char ch,int index){
-        if (index == st.length()){
-            System.out.println("First Occurrence of "+ ch+ " is at "+ first +" and last occurrence is at "+ last);
+
+    public static void firstLastOccurrence(String st, char ch, int index) {
+        if (index == st.length()) {
+            System.out.println("First Occurrence of " + ch + " is at " + first + " and last occurrence is at " + last);
             return;
         }
-        if (st.charAt(index) == ch){
-            if (first == -1){
+        if (st.charAt(index) == ch) {
+            if (first == -1) {
                 first = index;
-            }else {
+            } else {
                 last = index;
             }
         }
-        firstLastOccurrence(st,ch,index+1);
+        firstLastOccurrence(st, ch, index + 1);
     }
 
     public static void main(String[] args) {
         String st = "asbggadsava";
-        firstLastOccurrence(st,'a', 0);
+        firstLastOccurrence(st, 'a', 0);
     }
 }

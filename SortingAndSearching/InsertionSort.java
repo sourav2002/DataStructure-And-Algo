@@ -10,14 +10,14 @@ public class InsertionSort {
             return;
         }
         int a = currIndex;
-        for (int i = currIndex-1; i >= 0; i--) {
+        for (int i = currIndex - 1; i >= 0; i--) {
             if (arr[a] < arr[i]) {
 //                int temp = arr[a];
 //                arr[a] = arr[i];
 //                arr[i] = temp;
-                arr[a] = arr[a] +arr[i];
-                arr[i] =arr[a] -arr[i];
-                arr[a] = arr[a] -arr[i];
+                arr[a] = arr[a] + arr[i];
+                arr[i] = arr[a] - arr[i];
+                arr[a] = arr[a] - arr[i];
                 a--;
             } else {
                 break;

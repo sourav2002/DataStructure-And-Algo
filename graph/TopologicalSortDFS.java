@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
-//Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that
+//Topological sorting for Directed Acyclic graph.Graph (DAG) is a linear ordering of vertices such that
 // for every directed edge u v, vertex u comes before v in the ordering. Topological Sorting for a
 // graph is not possible if the graph is not a DAG.
 
@@ -13,7 +13,7 @@ public class TopologicalSortDFS {
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         int V = 6;
-        for (int i =0; i< V; i++){
+        for (int i = 0; i < V; i++) {
             adj.add(new ArrayList<Integer>());
         }
 
@@ -25,7 +25,7 @@ public class TopologicalSortDFS {
         adj.get(5).add(0);
 
         TopologicalSortDFS obj = new TopologicalSortDFS();
-        int [] ans = obj.topoSort(adj,V);
+        int[] ans = obj.topoSort(adj, V);
         System.out.println(Arrays.toString(ans));
 
     }
@@ -33,16 +33,16 @@ public class TopologicalSortDFS {
     private int[] topoSort(ArrayList<ArrayList<Integer>> adj, int v) {
         Stack<Integer> s = new Stack<>();
         int[] visited = new int[v];// default value of an int array is 0, On the other side for Integer array it is null
-        for (int i =0; i< v; i++){
-            if (visited[i] == 0){
-                findTopoSort(adj,i,s,visited);
+        for (int i = 0; i < v; i++) {
+            if (visited[i] == 0) {
+                findTopoSort(adj, i, s, visited);
             }
         }
 
         // put values from stack to an array because we have to return an array
         int[] topo = new int[v];
-        int ind =0;
-        while (!s.isEmpty()){
+        int ind = 0;
+        while (!s.isEmpty()) {
             topo[ind++] = s.pop();
         }
         return topo;
@@ -50,9 +50,9 @@ public class TopologicalSortDFS {
 
     private void findTopoSort(ArrayList<ArrayList<Integer>> adj, int node, Stack<Integer> s, int[] visited) {
         visited[node] = 1;
-        for (Integer it : adj.get(node)){
-            if (visited[it] == 0){
-                findTopoSort(adj,it,s,visited);
+        for (Integer it : adj.get(node)) {
+            if (visited[it] == 0) {
+                findTopoSort(adj, it, s, visited);
             }
         }
         s.push(node);

@@ -4,11 +4,12 @@ import java.util.Vector;
 
 public class GridUniquePathByGoogle {
     public static void main(String[] args) {
-        int [] [] arr = {{2,3,4,5}, {2,3,7,9}};
+        int[][] arr = {{2, 3, 4, 5}, {2, 3, 7, 9}};
     }
-    private int countPath(int i, int j, int n, int m, Vector<Vector<Integer>> dp ){
-        if (i == n-1 && j == m-1) return 1;
-        if (i >=n || j >= m) return 0;
+
+    private int countPath(int i, int j, int n, int m, Vector<Vector<Integer>> dp) {
+        if (i == n - 1 && j == m - 1) return 1;
+        if (i >= n || j >= m) return 0;
 
         // using dp
         if (dp.get(i).get(j) != -1) return dp.get(i).get(j);

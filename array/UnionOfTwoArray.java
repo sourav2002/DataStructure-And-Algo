@@ -21,8 +21,9 @@ public class UnionOfTwoArray {
         System.out.println("union array : ");
         System.out.println(Arrays.toString(union));
     }
-        // main method
-        public static void main(String[] args) {
+
+    // main method
+    public static void main(String[] args) {
         Integer[] arr1 = {1, 2, 4, 5, 6};
         Integer[] arr2 = {2, 3, 5, 7, 9};
 
