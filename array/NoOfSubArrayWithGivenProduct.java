@@ -1,3 +1,5 @@
+package array;
+
 class NoOfSubArrayWithGivenProduct {
     // Function to find number of subarrays having
     // product exactly equal to k.

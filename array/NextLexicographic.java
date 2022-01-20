@@ -1,3 +1,5 @@
+package array;
+
 public class NextLexicographic {
     public static void main(String[] args) {
         int[] a = {1, 3, 5, 4, 2};

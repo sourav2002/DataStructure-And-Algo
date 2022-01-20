@@ -1,3 +1,5 @@
+package array.starsPattern;
+
 import java.util.Scanner;
 
 public class star5 {
