@@ -1,17 +1,13 @@
-package SortingAndSearching;
-/*
-Sort an array of 0s, 1s and 2s
-Problem Statement: Given an array consisting of only 0s, 1s and 2s. Write a program to in-place sort the array
-without using inbuilt sort functions. ( Expected: Single pass-O(N) and constant space)
- */
-public class Sort_0s_1s_2s {
+package array;
+
+public class DutchNationalFlagAlgo {
     public static void main(String[] args) {
-        int[] arr = {0, 0, 2, 0, 1, 1, 1, 2, 2, 0, 0, 1, 1, 2};
-        Sort(arr);
-        for (int i : arr) {
-            System.out.print(i);
-        }
+    int[] arr = {0, 0, 2, 0, 1, 1, 1, 2, 2, 0, 0, 1, 1, 2};
+    Sort(arr);
+    for (int i : arr) {
+        System.out.print(i+" ");
     }
+}
 
     private static void Sort(int[] arr) {
         int size = arr.length;
