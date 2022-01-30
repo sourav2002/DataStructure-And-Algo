@@ -5,7 +5,7 @@ public class SearchAnElement {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
         int start = 0;
         int end = arr.length - 1;
-        int key = 9;
+        int key = 8;
         searching(arr, start, end, key);
     }
 
