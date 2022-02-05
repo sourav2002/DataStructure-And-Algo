@@ -64,17 +64,17 @@ Given array is { 1, 3, 5, 4, 2 }
 1. special case if size of given array is 0 or 1 then simply return
 2. run a loop where i starts from 2nd last index( because we are gonna count i and i+1)
    until a[i] > a[i+1] if yes , i--;
-   1 ,3, 5, 4 ,2
+   1 ,3, 5, 4 ,2  (5 > 4 ? i--, so i is now at 3)
       i ( position of i according to condition i.e on 3  )
 
 3. now create one more variable lets name it j and set the value of j = last index of array
    run a while loop until a[j] <= a[i] if yes j--
-   1, 3, 5, 4, 2
+   1, 3, 5, 4, 2   (2 < 3 ? j--, so j is now on 4)
       i     j ( position of j )
    Because in ist iteration a[j] < a[i] which is 2 < 3 so j-- means j is now at 4 (2nd last index)
 
 4. Now swap i and j index values with swap method -> 1, 4, 5, 3, 2
-5. Now reverse the array from i+1 index to last index -> 1, 4, 2, 3, 5
+5. Now reverse the array from i+1 index to last index -> 1, 4,( 5, 3, 2) --> 1, 4, (2, 3, 5)
    This is the final answer now return it.
 
  */

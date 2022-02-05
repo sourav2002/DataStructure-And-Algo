@@ -21,8 +21,8 @@ and if we find any 0 at any index then update every index of  row and col with 0
 
 public class SetMatrixZero {
     public static void main(String[] args) {
-        int[][] matrix = {{1, 1, 2, 1}, {3, 0, 5, 2}, {1, 3, 0, 5}, {0, 0, 0, 1}};
-//        int [][] matrix={{1, 0,0,0}, {3, 0, 5, 2}, {1, 3, 0, 5}, {1,1,1,1}};
+//        int[][] matrix = {{1, 1, 2, 1}, {3, 0, 5, 2}, {1, 3, 0, 5}, {0, 0, 0, 1}};
+        int [][] matrix={{1, 0,0,0}, {3, 0, 5, 2}, {1, 3, 0, 5}, {1,1,1,1}};
 //        int [][] matrix={{1, 1, 2, 1}, {3, 1, 5, 2}, {0, 3, 1, 5}, {1,1,1,1}};
         setZeroes(matrix);
         System.out.println("The Final Matrix is ");
@@ -35,29 +35,35 @@ public class SetMatrixZero {
     }
 
     private static void setZeroes(int[][] matrix) {
-        int col0 = 1, row0 = 1, rows = matrix.length, cols = matrix[0].length;
-        for (int i = 0; i < rows; i++) {
-            if (matrix[i][0] == 0) col0 = 0;
-            for (int j = 0; j < cols; j++) {
-                if (matrix[0][j] == 0) row0 = 0;
-                if (col0 != 0) { // do not update index = 0 if col0 = 0
-                    if (matrix[i][j] == 0) {
-                        matrix[i][0] = matrix[0][j] = 0;     // imp
-                    }
+        boolean fr = false, fc = false;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 0) {
+                    if (i == 0) fr = true;
+                    if (j == 0) fc = true;
+                    matrix[0][j] = 0;
+                    matrix[i][0] = 0;
                 }
             }
         }
 
-        // now traverse the matrix in reverse order
-        for (int i = rows - 1; i >= 0; i--) {
-            for (int j = cols - 1; j >= 0; j--) {
-                if (matrix[i][0] == 0 || matrix[0][j] == 0) {
-                    matrix[i][j] = 0; // imp
+        for (int i = 1; i < matrix.length; i++) {
+            for (int j = 1; j<matrix[0].length; j++){
+                if (matrix[i][0] == 0 || matrix[0][j]==0){
+                    matrix[i][j] = 0;
                 }
-            }//end of inner loop
-            if (col0 == 0) { // we are doing row or col = 0 separately because initially we ignore it in 1st traversal
+            }
+        }
+
+        if (fr){
+            for (int j=0; j<matrix[0].length; j++){
+                matrix[0][j] = 0;
+            }
+        }
+        if (fc){
+            for (int i =0; i<matrix.length;i++){
                 matrix[i][0] = 0;
             }
-        }// end of outer loop
+        }
     }
-}// code is not working for row0 = true , gonna fix it later
+}

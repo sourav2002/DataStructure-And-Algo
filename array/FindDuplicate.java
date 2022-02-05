@@ -9,9 +9,26 @@ import java.util.Arrays;
 public class FindDuplicate {
     public static void main(String[] args) {
         int[] arr = {2, 1, 3, 2};
-        Arrays.sort(arr);
-//        find(arr);
         System.out.println("duplicate no. is : " + find2(arr));
+    }
+
+    // time complexity is O(n )
+    // tortoise and hare algo (slow pointer fast pointer)
+    private static int find2(int[] arr) {
+        int slow = arr[0];
+        int fast = arr[0];
+
+        do {
+            slow = arr[slow];
+            fast = arr[arr[fast]];
+        }while (slow != fast);
+
+        fast = arr[0];
+        while (slow != fast){
+            slow = arr[slow];
+            fast = arr[fast];
+        }
+        return fast;
     }
 
     // time complexity is O(n log n )
@@ -29,23 +46,4 @@ public class FindDuplicate {
         }
     }
 
-    // time complexity is O(n )
-    private static int find2(int[] arr) {
-        // traverse the array
-        for (int i = 0; i < arr.length; i++) {
-            //Return the absolute value
-            int index = Math.abs(arr[i]);
-            System.out.println("index : " + index);// just for understanding
-
-//            if the number present in this index is negative its mean we have found duplicate
-            if (arr[index] < 0) {
-                return index;
-            } else {
-                // put a negative number
-                arr[index] = -arr[index];
-            }
-        }
-
-        return -1;
-    }
 }
