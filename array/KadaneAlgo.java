@@ -15,22 +15,27 @@ public class KadaneAlgo {
         int start = 0;
         int end =0;
         for (int i =0; i<arr.length; i++) {
+            // 1, 2, 3, -9, 15, 8
 
+            // here we are gonna check every if condition
             sum = sum + arr[i];
             if (max_so_far < sum) {
                 max_so_far = sum;
                 end = i;
             }
-            if (arr[i] == sum){
+            if (arr[i] == sum){  // if new index value is also the new sum then update start variable
                 start = i;
             }
             if (sum < 0)
                 sum = 0;
         }
+        //        return max_so_far;
+
         for (int i = start; i<= end; i++){
             System.out.print(arr[i]+" ");
         }
-//        return max_so_far;
+        System.out.println();
+        System.out.println("Index : ["+ start+", "+ end+"]");
         System.out.println();
         System.out.println("Max Sum is : "+ max_so_far);
     }

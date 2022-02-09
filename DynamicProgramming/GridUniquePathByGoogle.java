@@ -1,19 +1,30 @@
 package DynamicProgramming;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Vector;
 
 public class GridUniquePathByGoogle {
     public static void main(String[] args) {
         int[][] arr = {{2, 3, 4, 5}, {2, 3, 7, 9}};
+
+        System.out.println(countPath(arr.length, arr[0].length));
     }
 
-    private int countPath(int i, int j, int n, int m, Vector<Vector<Integer>> dp) {
-        if (i == n - 1 && j == m - 1) return 1;
-        if (i >= n || j >= m) return 0;
+    private static int countPath(int m, int n) {
+        int N = m+n-2;
+//        nCr
+        int r = m-1;
+        double res = 1;
 
-        // using dp
-        if (dp.get(i).get(j) != -1) return dp.get(i).get(j);
-//        else return dp.set(i).set(j) = countPath(i + 1, j, n, m, dp) + countPath(i, j + 1, n, m, dp);
-        return 0;// error
+        // 10C3 --> run i 0 ,1,2,3
+
+        // 10c3 = 10x9x8/ 1x2x3
+
+//         n-r+i --> 10 - 3 + 1 or 2 or 3 / 1 or 2 or 3
+        for (int i = 1; i<= r; i++){
+            res = res * (N - r + i)/ i;
+        }
+        return (int) res;
     }
 }
