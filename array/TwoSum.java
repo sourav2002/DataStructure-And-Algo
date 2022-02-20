@@ -1,32 +1,32 @@
 package array;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TwoSum {
     public static void main(String[] args) {
-        int[] arr = {2,7,11,15};
+        int[] arr = {2,7,5,11,4,15};
         int target = 9;
 
-        System.out.println(Arrays.toString(twoSum(arr,target)));
+        System.out.println((twoSum(arr,target)));
     }
-    public static int[] twoSum(int[] arr, int target){
+    public static List<List<Integer>> twoSum(int[] arr, int target){
         if (arr.length == 0 || arr == null){
-            return new int[0];
+            return new ArrayList<>();
         }
-        int[] result = new int[2];
+//        int[] result = new int[2];
+        List<List<Integer>> ans = new ArrayList<>();//new
         Map<Integer, Integer> map = new HashMap<>();
         for (int i =0; i<arr.length;i++){
             if (map.containsKey(target-arr[i])){
-                result[0] = map.get(target-arr[i]);
-                result[1] = i;
-                return result;
+//                result[0] = map.get(target-arr[i]);
+//                result[1] = i;
+//                return result;
+                ans.add(Arrays.asList(map.get(target-arr[i]), i));//new
             }else {
                 map.put(arr[i], i);
             }
         }
-        return result;
+        return ans;
     }
 }
 /*

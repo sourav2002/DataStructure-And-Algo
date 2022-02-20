@@ -1,5 +1,6 @@
 package array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class ThreeSum {
     public static List<List<Integer>> threeSum(int[] arr) {
 
         Arrays.sort(arr);
-        List<List<Integer>> res = new LinkedList<>();
+        List<List<Integer>> res = new ArrayList<>();
 
         for (int i = 0; i < arr.length - 2; i++) { // till 3rd last index bcz triplet can't be same index value
             if (i == 0 || (i > 0 && arr[i] != arr[i - 1])) {  // arr[i] and arr[i-1] should not be same to avoid duplication
@@ -38,8 +39,9 @@ public class ThreeSum {
                         high--;
                     } else if (sum > 0) high--;
                     else low++;
-                }
-            }//end of if loop
+                }// end of while
+            }//end of if
+
         }// end of for loop
         return res;
     }
