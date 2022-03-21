@@ -17,7 +17,7 @@ public class MyLinkedList<E> {
         return head == null;
     }
 
-    // method to add one element
+    // method to add a node in list
     public void add(E data) {
         Node<E> toAdd = new Node<>(data);
         toAdd.next = null;
@@ -25,6 +25,7 @@ public class MyLinkedList<E> {
         //  CASE 1:  if list is empty then add element on head
         if (isEmpty()) {
             head = toAdd;
+            size++;
             return;
         }
 
@@ -34,6 +35,7 @@ public class MyLinkedList<E> {
             temp = temp.next;
         }
         temp.next = toAdd;
+        size++;
     }
 
     // method to add on first position
@@ -52,7 +54,7 @@ public class MyLinkedList<E> {
 
     public void deleteByKey(E data) {
         Node<E> currNode = head, prev = null; // we created this prev node just to get the position before the given
-        // position for example if the position is 5 than prev will we 4
+        // position for example if the position is 5 than prev will be 4
         // CASE 1:
         // If head node itself holds the key to be deleted
         if (currNode != null && currNode.data == data) {
@@ -122,13 +124,12 @@ public class MyLinkedList<E> {
 
     // Node to traverse list
     private static class Node<E> {
-        Node<E> prev;
         E data;
         Node<E> next;
 
         public Node(E data) {
             this.data = data;
-            next = prev = null;
+            next = null;
         }
     }
 }

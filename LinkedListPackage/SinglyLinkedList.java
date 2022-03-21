@@ -15,7 +15,11 @@ public class SinglyLinkedList {
         sll.insertLast(7);
         sll.insertLast(9);
         sll.insertLast(11);
-
+        sll.display();
+        System.out.println();
+        sll.reverse();
+        sll.display();
+        System.out.println();
         sll.deleteLast();
 //        sll.deleteLast();
 //        sll.deleteLast();
@@ -76,8 +80,6 @@ public class SinglyLinkedList {
             previous.next = node;
             node.next = current;
         }
-
-
     }
 
     public void insertLast(int value) {
@@ -115,21 +117,14 @@ public class SinglyLinkedList {
                 previous = previous.next;
                 count++;
             }
-
             ListNode current = previous.next;
             previous.next = current.next;
         }
     }
 
     public ListNode deleteLast() {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return null;
-        }
-
-        if (head.next == null) {
-            ListNode temp = head;
-            head = head.next;
-            return temp;
         }
 
         ListNode current = head;
@@ -140,7 +135,7 @@ public class SinglyLinkedList {
             current = current.next;
         }
         previous.next = null; // break the chain
-        return current;
+        return head;
     }
 
     public boolean find(int searchKey) {
@@ -158,6 +153,8 @@ public class SinglyLinkedList {
         return false;
     }
 
+
+    // Reverse a linked list
     public ListNode reverse() {
         if (head == null) {
             return null;
@@ -165,7 +162,7 @@ public class SinglyLinkedList {
 
         ListNode current = head;
         ListNode previous = null;
-        ListNode next = null;
+        ListNode next;
 
         while (current != null) {
             next = current.next;
@@ -173,7 +170,8 @@ public class SinglyLinkedList {
             previous = current;
             current = next;
         }
-        return previous;
+        head =  previous;
+        return head;
     }
 
     public ListNode getMiddleNode() {

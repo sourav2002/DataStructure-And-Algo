@@ -82,6 +82,7 @@ public class CircularSinglyLinkedList<E> {
         ListNode<E> newNode = new ListNode<>(data);
         if (last == null) {
             last = newNode;
+
             last.next = last;
         } else {
             newNode.next = last.next;

@@ -1,3 +1,5 @@
+package LinkedListPackage;
+
 public class DynamicList {
 
     public static void main(String[] args) throws Exception {
