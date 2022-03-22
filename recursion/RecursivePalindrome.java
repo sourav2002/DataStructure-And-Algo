@@ -1,3 +1,5 @@
+package recursion;
+
 import java.util.Scanner;
 
 class RecursivePalindrome {
