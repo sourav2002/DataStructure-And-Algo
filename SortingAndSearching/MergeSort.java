@@ -24,26 +24,26 @@ public class MergeSort {
 
         int i = low;
         int j = mid + 1;
-        int k = low;
+        int ind = low;
         while (i <= mid && j <= high) {
             if (temp[i] <= temp[j]) {
-                arr[k] = temp[i];
+                arr[ind] = temp[i];
                 i++;
             } else {
-                arr[k] = temp[j];
+                arr[ind] = temp[j];
                 j++;
             }
-            k++;
+            ind++;
         }
         while (i <= mid) {
-            arr[k] = temp[i];
+            arr[ind] = temp[i];
             i++;
-            k++;
+            ind++;
         }
         while (j <= high) {
-            arr[k] = temp[j];
+            arr[ind] = temp[j];
             j++;
-            k++;
+            ind++;
         }
     }
 

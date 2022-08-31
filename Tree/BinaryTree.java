@@ -2,10 +2,25 @@ package Tree;
 
 import stack.MyStack;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
+// node class
+class TreeNode<E> {
+    public E data;
+    public TreeNode<E> left;
+    public TreeNode<E> right;
+
+    public TreeNode(E data) {
+        this.data = data;
+        left = right = null;
+    }
+}
+
 public class BinaryTree<E> {
+
     private TreeNode<E> root;
 
     public BinaryTree() {
@@ -14,13 +29,13 @@ public class BinaryTree<E> {
 
     public static void main(String[] args) {
         BinaryTree<Integer> bt = new BinaryTree<>();
-//        bt.createBinaryTree();
-        bt.root = new TreeNode<>(1);
-        bt.root.left = new TreeNode<>(2);
-        bt.root.right = new TreeNode<>(3);
-        bt.root.left.left = new TreeNode<>(4);
-        bt.root.left.right = new TreeNode<>(5);
-        bt.root.right.left = new TreeNode<>(6);
+        bt.createBinaryTree();
+//        bt.root = new TreeNode<>(1);
+//        bt.root.left = new TreeNode<>(2);
+//        bt.root.right = new TreeNode<>(3);
+//        bt.root.left.left = new TreeNode<>(4);
+//        bt.root.left.right = new TreeNode<>(5);
+//        bt.root.right.left = new TreeNode<>(6);
 
 
         System.out.println("preOrder Tree : ");
@@ -41,6 +56,9 @@ public class BinaryTree<E> {
         bt.postOrderIterateUsingStack(bt.root);
         System.out.println();
 
+        System.out.println("Morris Traversal : ");
+        bt.MorrisTraversal(bt.root);
+        System.out.println();
 
         System.out.println("Level order tree traversal : ");
         bt.levelOrder(bt.root);
@@ -49,6 +67,14 @@ public class BinaryTree<E> {
         System.out.println("Max value is : " + bt.findMax(bt.root));
 
         System.out.println("max depth is : " + bt.maxDepth(bt.root));
+
+        System.out.println("max width is " + bt.widthOfBinaryTree(bt.root));
+
+        System.out.println("check if tree is balanced  - " + bt.isBalanced(bt.root));
+
+        System.out.println("Diameter of binary tree  - "+ bt.diameterOfBinaryTree(bt.root));
+
+        System.out.println("max path sum is - "+ bt.maxPathSum(bt.root));
     }
 
     public void createBinaryTree() {
@@ -73,9 +99,11 @@ public class BinaryTree<E> {
         if (root == null) {
             return Integer.MIN_VALUE;
         }
+
         int result = root.data;
         int left = findMax(root.left);
         int right = findMax(root.right);
+
         if (left > result) {
             result = left;
         }
@@ -88,19 +116,101 @@ public class BinaryTree<E> {
     int maxDepth(TreeNode node) {
         if (node == null)
             return 0;
-        else {
-            /* compute the depth of each subtree */
-            int lDepth = maxDepth(node.left);
-            int rDepth = maxDepth(node.right);
+        /* compute the depth of each subtree */
+        int lDepth = maxDepth(node.left);
+        int rDepth = maxDepth(node.right);
 
-            /* use the larger one */
-            if (lDepth > rDepth)
-                return (lDepth + 1);
-            else
-                return (rDepth + 1);
-        }
+        /* use the larger one */
+        if (lDepth > rDepth)
+            return (lDepth + 1);
+        else
+            return (rDepth + 1);
     }
 
+    // if left height and right height difference is greater than 1, then it is not balanced
+    boolean isBalanced(TreeNode node){
+        return checkBalanced(node) != -1;
+    }
+
+    public int widthOfBinaryTree(TreeNode root) {
+        if(root == null) return 0;
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        Map<TreeNode, Integer> m = new HashMap<TreeNode, Integer>();
+        q.offer(root);
+        m.put(root, 1);
+        int curW = 0;
+        int maxW = 0;
+        while(!q.isEmpty()){
+            int size = q.size();
+            int start = 0;
+            int end = 0;
+            for(int i = 0; i < size; i++){
+                TreeNode node = q.poll();
+                if(i == 0) start = m.get(node);
+                if(i == size - 1) end = m.get(node);
+                if(node.left != null){
+                    m.put(node.left, m.get(node) * 2);
+                    q.offer(node.left);
+                }
+                if(node.right != null){
+                    m.put(node.right, m.get(node) * 2 + 1);
+                    q.offer(node.right);
+                }
+            }
+            curW = end - start + 1;
+            maxW = Math.max(curW, maxW);
+        }
+        return maxW;
+    }
+
+    int checkBalanced(TreeNode node){
+        if(node == null) return 0;
+
+        int leftH = checkBalanced(node.left);
+        if(leftH == -1) return -1;
+        int rightH = checkBalanced(node.right);
+        if (rightH == -1) return -1;
+
+        if(Math.abs(leftH - rightH ) > 1) return -1;
+        return Math.max(leftH, rightH) + 1;
+    }
+
+    // here we are passing diameter as an array, because in java we can't
+    // pass var by reference in methods
+    int diameterOfBinaryTree(TreeNode node){
+        int []diameter = new int[1];
+        height(root, diameter);
+        return diameter[0];
+
+    }
+    private int height(TreeNode node, int[] diameter){
+        if (node == null) return 0;
+        int lh = height(node.left, diameter);
+        int rh = height(node.right, diameter);
+        diameter[0] = Math.max(diameter[0], lh+rh);
+        return 1 + Math.max(lh, rh);
+    }
+
+
+    public int maxPathSum(TreeNode root) {
+
+        int[] maxValue = new int[1];
+        maxValue[0] = Integer.MIN_VALUE;
+        maxPathDown(root, maxValue);
+        return maxValue[0];
+    }
+
+    private int maxPathDown(TreeNode root, int[] maxValue){
+        if(root == null) return 0;
+
+        int maxsumleft = maxPathDown(root.left, maxValue);
+        if(maxsumleft < 0) maxsumleft = 0;
+        int maxsumright = maxPathDown(root.right, maxValue);
+        if(maxsumright < 0) maxsumright = 0;
+
+        maxValue[0] = Math.max(maxValue[0], (maxsumleft+ maxsumright+(int) root.data));
+        return Math.max(maxsumleft, maxsumright) + (int)root.data;
+    }
     //preOrder Binary Tree Traversal -->
     // 1) root
     // 2) left
@@ -140,7 +250,7 @@ public class BinaryTree<E> {
         System.out.print(root.data + " ");
     }
 
-    // level order -->  print  left node to right node and from top to bottom
+    // level order -->  print from left node to right node and from top to bottom
     public void levelOrder(TreeNode<E> root) {
         if (root == null) {
             return;
@@ -160,6 +270,7 @@ public class BinaryTree<E> {
         }
     }
 
+    // root --> left --> right
     public void preOrderIterateUsingStack(TreeNode<E> root) {
         if (root == null) {
             return;
@@ -178,6 +289,7 @@ public class BinaryTree<E> {
         }
     }
 
+    // left --> root --> right
     public void inOrderIterateUsingStack(TreeNode<E> root) {
         if (root == null) {
             return;
@@ -197,6 +309,7 @@ public class BinaryTree<E> {
     }
 
     public void postOrderIterateUsingStack(TreeNode<E> root) {
+
         MyStack<TreeNode<E>> stack = new MyStack<>();
         TreeNode<E> current = root;
         while (!stack.isEmpty() || current != null) {
@@ -208,6 +321,8 @@ public class BinaryTree<E> {
                 if (temp == null) {
                     temp = stack.pop();
                     System.out.print(temp.data + " ");
+                    // stack isEmpty condition is checked because we just pop out an element from stack
+                    // so, it is possible that our stack get empty
                     while (!stack.isEmpty() && temp == stack.peek().right) {
                         temp = stack.pop();
                         System.out.print(temp.data + " ");
@@ -219,15 +334,35 @@ public class BinaryTree<E> {
         }
     }
 
-    // node class
-    static class TreeNode<E> {
-        private E data;
-        private TreeNode<E> left;
-        private TreeNode<E> right;
+    public void MorrisTraversal(TreeNode<E> root) {
+        TreeNode cur = root;
 
-        public TreeNode(E data) {
-            this.data = data;
-            left = right = null;
+        while(cur != null){
+
+            if(cur.left == null){
+                System.out.print(cur.data+" ");
+                cur = cur.right;
+            }
+            else{
+                TreeNode prev = cur.left;
+                while(prev.right != cur && prev.right != null ){
+                    prev = prev.right;
+                }
+                if(prev.right == null){
+                    prev.right = cur; // creating threat between last node and root node
+                    System.out.print(cur.data+" ");
+                    cur = cur.left;
+                }
+
+                // for inorder traversal, put sout cur.data line from if
+                //condition to else condition
+                else {
+                    // time to break the thread
+                    prev.right = null;
+                    cur = cur.right;
+                }
+            }
         }
     }
 }
+

@@ -53,6 +53,7 @@ public class BinarySearchTree {
         inOrder(root);
     }
 
+    // inorder returns sorted values
     public void inOrder(treeNode root) {
         if (root == null) {
             return;

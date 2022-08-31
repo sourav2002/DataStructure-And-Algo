@@ -1,4 +1,5 @@
-import java.util.List;
+package queue;
+
 import java.util.*;
 
 class Examination {      // Class to get inputs                   

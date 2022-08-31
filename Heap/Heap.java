@@ -34,7 +34,7 @@ class Heap {
         int i = n - 1;
         int parent = (i - 1) / 2;
 
-        if (arr[parent] > 0) {
+        if (parent > 0) {
             // For Max-Heap
             // If current node is greater than its parent
             // Swap both of them and call heapify again
@@ -91,11 +91,14 @@ class Heap {
 
     // To heapify a subtree rooted with node i which is
     // an index in arr[]. n is size of heap
+    // n (size of array) may vary ( in sort method we are calling heapify method for a specific range )
     public void heapify(int arr[], int n, int i) {
         int largest = i;  // Initialize largest as root
         int l = 2 * i + 1;  // left = 2*i + 1
         int r = 2 * i + 2;  // right = 2*i + 2
 
+        // check l < n && r < n because we are initializing left and right with 2 *  i + 1
+        // so, it can exceed the size of array
         // If left child is larger than root
         if (l < n && arr[l] > arr[largest])
             largest = l;

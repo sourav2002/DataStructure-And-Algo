@@ -1,3 +1,5 @@
+package stack;
+
 public class stackArrayapp {
 
 
