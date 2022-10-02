@@ -258,6 +258,14 @@ solution is known as optimal substructure property. The main use of dynamic prog
 problems. Here, optimization problems mean that when we are trying to find out the minimum or the maximum solution of a
 problem. The dynamic programming guarantees to find the optimal solution of a problem if the solution exists.
 
+# 11. [Data Structures](https://github.com/sourav2002/DataStructure-And-Algo/tree/main/Data_Structures)
+
+**Data Structures** are a specialized means of organizing and storing data in computers in such a way that we can perform 
+operations on the stored data more efficiently. Data structures have a wide and diverse scope of usage across the fields of 
+Computer Science and Software Engineering. Data structures are being used in almost every program or software system that has 
+been developed. Moreover, data structures come under the fundamentals of Computer Science and Software Engineering. It is a key 
+topic when it comes to Software Engineering interview questions. Hence as developers, we must have good knowledge about data structures.
+
 The reference is taken
 from [this link](https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42) -
 Sourav Saini😊
