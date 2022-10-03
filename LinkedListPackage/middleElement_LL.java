@@ -9,7 +9,7 @@ this.num = n;
 this.next = null;  
 }  
 }  
-public class TwoPointerExample1  
+public class middleElement_LL 
 {  
 public void findNode(Node n)  
 {  
@@ -40,8 +40,8 @@ h.next.next.next = new Node(76);
 h.next.next.next.next = new Node(45);  
 h.next.next.next.next.next = new Node(32);  
 h.next.next.next.next.next.next = new Node(10);  
-// creating an object of the class TwoPointerExample1  
-TwoPointerExample1 obj = new TwoPointerExample1();  
+// creating an object of the class middleElement_LL  
+middleElement_LL obj = new middleElement_LL();  
 // invoking the method findNode()  
 obj.findNode(h);  
 }  
