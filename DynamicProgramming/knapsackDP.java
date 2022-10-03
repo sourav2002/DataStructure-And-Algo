@@ -5,7 +5,7 @@ Its weight is given by the ‘wt’ array and its value by the ‘val’ array. 
 an item in its knapsack or exclude it but can’t partially have it as a fraction. We need to find
 the maximum value of items that the thief can steal.
  */
-public class _19Knapsack {
+public class knapsackDP {
     public static void main(String[] args) {
         int n = 4;
         int [] w = {2, 2, 5, 5};
