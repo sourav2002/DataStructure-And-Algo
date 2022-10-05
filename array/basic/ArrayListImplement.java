@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ArrayListImplement {
     public static void main(String[] args) {
         ArrayList<String> fruits = new ArrayList<>();
+
         fruits.add("apple");
         fruits.add("mango");
         System.out.println(fruits);
