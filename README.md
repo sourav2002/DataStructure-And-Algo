@@ -1,5 +1,8 @@
 # DataStructure-And-Algorithm in JAVA
 
+###### A data structure is a specialized format for organizing, processing, retrieving and storing data. There are several basic and advanced types of data structures, all designed to arrange data to suit a specific purpose. Data structures make it easy for users to access and work with the data they need in appropriate ways. Most importantly, data structures frame the organization of information so that machines and humans can better understand it.
+###### &nbsp;
+
 -------  
 ## Data Structure
 **Data Structures** are a specialized means of organizing and storing data in computers in such a way that we can perform 
