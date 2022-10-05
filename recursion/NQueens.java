@@ -1,15 +1,22 @@
 class NQueens {
-    public List<List<String>> solveNQueens(int n) {
+
+    public static void main(String[] args){
+        ArrayList<ArrayList<String>> chad = solveNQueens(4);
+        System.out.println(chad);
+    }
+
+    // function for returning the ArrayList
+    public ArrayList<ArrayList<String>> solveNQueens(int n) {
         boolean[][] board = new boolean[n][n];
-        List<List<String>> ans = new ArrayList<>();
+        ArrayList<ArrayList<String>> ans = new ArrayList<>();
         nqueens(board,0,ans);
         return ans;
     }
     
-    void nqueens(boolean[][] board, int row,List<List<String>> ans){
+    void nqueens(boolean[][] board, int row,ArrayList<ArrayList<String>> ans){
       // It means we have reached the last row and this solution is valid, (for counting no. of distinct solutions just return 1 (the function will be of type int))
         if(row == board.length){
-            List<String> p = new ArrayList<>();
+            ArrayList<String> p = new ArrayList<>();
             String str = "";
             for(boolean[] nums : board){
                for(boolean element : nums){
