@@ -8,6 +8,26 @@ class ListNode {
 }
 
 public class MergeSort {
+
+  public static void main(String[] args){
+        ListNode head = new ListNode(13);  
+        // addition remaining node of the linked list  
+        head.next = new ListNode(17);  
+        head.next.next = new ListNode(90);  
+        head.next.next.next = new ListNode(76);  
+        head.next.next.next.next = new ListNode(45);  
+        head.next.next.next.next.next = new ListNode(32);  
+        head.next.next.next.next.next.next = new ListNode(10);  
+        
+        head = sortList(head);
+        ListNode temp = head;
+        while(temp != null){
+            System.out.print(temp.val + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("END");
+  }
+
   // Method to find the middle element.
   public ListNode getMid(ListNode head) {
         ListNode midPrev = null;
@@ -39,7 +59,7 @@ public class MergeSort {
         return dummyHead.next;
   }
 
-  // Method for sorting the linked list
+  // Method for sorting the linked list and returns the new head
   public ListNode sortList(ListNode head) {
         if(head == null || head.next == null){
             return head;
