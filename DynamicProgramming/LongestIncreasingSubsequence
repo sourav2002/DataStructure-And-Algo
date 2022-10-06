@@ -1,0 +1,28 @@
+import java.util.*;
+Class LIS{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for(int i=0;i<n;i++)nums[i]=sc.nextInt();
+        System.out.println("Length of Longest Increasing Subsequence in nums is : "+lengthOfLIS(nums));
+    }
+    public int lengthOfLIS(int[] nums) {
+        int m=nums.length;
+        int cache[][] = new int[m+1][m+1];
+        for(int[] r:cache){
+            Arrays.fill(r,-1);
+        }
+        return sol(nums,-1,0,m,cache);
+    }
+    private static int sol(int[] nums,int p,int c,int n,int[][] cache){
+        if(c==n){return 0;}
+        if(cache[p+1][c]!=-1){return cache[p+1][c];}
+        int in=0;
+        if(p==-1||nums[p]<nums[c]){
+            in=sol(nums,c,c+1,n,cache)+1;
+        }
+        int ex=sol(nums,p,c+1,n,cache);
+        return cache[p+1][c]=Math.max(in,ex);
+    }
+}
