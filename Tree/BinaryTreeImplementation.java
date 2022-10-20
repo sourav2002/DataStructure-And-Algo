@@ -7,7 +7,7 @@
  /* Class BTNode */
  class BTNode
  {    
-     BTNode left, right;
+     private BTNode left, right;
      int data;
      public BTNode() {
          left = null;
