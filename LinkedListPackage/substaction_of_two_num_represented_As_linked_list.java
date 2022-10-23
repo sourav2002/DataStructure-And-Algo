@@ -179,7 +179,7 @@ class LinkedList {
 	}
 }
 
-*/
+/*
 
 Input: l1 = 1 -> 0 -> 0 -> NULL,  l2 = 1 -> NULL
 Output: 0->9->9->NULL
