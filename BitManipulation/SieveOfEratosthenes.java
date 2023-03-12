@@ -1,3 +1,6 @@
+package BitManipulation;
+import java.util.Scanner;
+
 // Java program to print all primes smaller than or equal to
 // n using Sieve of Eratosthenes
 class SieveOfEratosthenes
@@ -29,14 +32,15 @@ class SieveOfEratosthenes
 				System.out.print(i + " ");
 		}
 	}
-		public static void main(String args[])
+	public static void main(String args[])
 	{
-    Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		System.out.print("Following are the prime numbers ");
-		System.out.println("Smaller than or equal to " + n);
-		SieveOfEratosthenes g = new SieveOfEratosthenes();
-		g.sieveOfEratosthenes(n);
+        try (Scanner sc = new Scanner(System.in)) {
+			int n = sc.nextInt();
+			System.out.print("Following are the prime numbers ");
+			System.out.println("Smaller than or equal to " + n);
+			SieveOfEratosthenes g = new SieveOfEratosthenes();
+			g.sieveOfEratosthenes(n);
+		}
 	}
 }
 

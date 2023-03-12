@@ -1,3 +1,5 @@
+package BitManipulation;
+
 class Main
 {
 	// Compute a power of two less than or equal to `n`

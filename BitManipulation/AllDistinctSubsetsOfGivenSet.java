@@ -1,3 +1,4 @@
+package BitManipulation;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
@@ -50,13 +51,13 @@ class AllDistinctSubsetsOfGivenSet
  
         findPowerSet(S);
     }
+
 }
 
-
-OUTPUT for sample input:
+/*OUTPUT for sample input:
 [3, 1, 1]
 [3, 1]
 [3]
 [1, 1]
 [1]
-[]
+[]*/
