@@ -1,6 +1,6 @@
 // Problem Statement:
 // Given an array of integers representing the heights of bars in a histogram, find the area of the largest rectangle in the histogram.
-
+package stack;
 import java.util.Stack;
 
 public class LargestRectangleArea {
