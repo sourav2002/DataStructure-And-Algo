@@ -267,6 +267,61 @@ solution is known as optimal substructure property. The main use of dynamic prog
 problems. Here, optimization problems mean that when we are trying to find out the minimum or the maximum solution of a
 problem. The dynamic programming guarantees to find the optimal solution of a problem if the solution exists.
 
+### Time Complexity
+Time Complexity	Algorithm
+O
+(
+1
+)
+Looking up a specific element in an array, like this for example:
+print( my_array[97] )
+No matter the size of the array, an element can be looked up directly, it just requires one operation. (This is not really an algorithm by the way, but it can help us to understand how time complexity works.)
+
+O
+(
+n
+)
+Finding the lowest value. The algorithm must do 
+n
+ operations in an array with 
+n
+ values to find the lowest value, because the algorithm must compare each value one time.
+
+O
+(
+n
+2
+)
+Bubble sort, Selection sort and Insertion sort are algorithms with this time complexity. The reason for their time complexities are explained on the pages for these algorithms.
+
+Large data sets slows down these algorithms significantly. With just an increase in 
+n
+ from 100 to 200 values, the number of operations can increase by as much as 30000!
+
+
+
+O
+(
+n
+log
+n
+)
+The Quicksort algorithm is faster on average than the three sorting algorithms mentioned above, with 
+O
+(
+n
+log
+n
+)
+ being the average and not the worst case time. Worst case time for Quicksort is also 
+O
+(
+n
+2
+)
+, but it is the average time that makes Quicksort so interesting. We will learn about Quicksort later.
+
+
 
 The reference is taken
 from [this link](https://towardsdatascience.com/8-common-data-structures-every-programmer-must-know-171acf6a1a42) -
