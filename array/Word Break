@@ -1,0 +1,20 @@
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        // if we found word break for whole string, return true        
+        if(s.isEmpty()) return true;
+        
+        for(String word: wordDict){
+            int n = word.length();
+
+            if(s.length() >= n){
+
+                // if word is prefix of s, then break s and look for word break in remaining string
+                if (s.startsWith(word)) {
+                    boolean b = wordBreak(s.substring(n), wordDict);
+                    if(b) return b;
+                }
+            }
+        }
+        return false;
+    }
+}
