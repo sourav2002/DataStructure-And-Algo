@@ -1,0 +1,24 @@
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        
+        int n = triangle.size();
+        int []prev =  new int [n];
+        
+        for(int i=n-1;i>=0;i--){
+            int []cur =  new int [n];
+            for(int j=i;j>=0;j--){ // Note Condition of "J"can be other way too.
+                if(i==n-1){
+                    cur[j] = triangle.get(i).get(j);
+                    continue;
+                }
+                int down = (int)(1e9);
+                int diagonal = (int)(1e9);
+                if(i+1<n) down = triangle.get(i).get(j)+ prev[j];
+                if(j+1<n && i+1<n) diagonal = triangle.get(i).get(j)+ prev[j+1];
+                cur[j] = Math.min(down,diagonal);
+            }
+            prev = cur;
+        }
+        return prev[0];
+    }
+}
