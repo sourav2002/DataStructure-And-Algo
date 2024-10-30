@@ -1,0 +1,33 @@
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        //Use TreeMap to get largest element from sorted map.
+        TreeMap<Integer,Integer> map = new TreeMap<>(Collections.reverseOrder());
+        //first put k values in TreeMap
+        for(int i=0;i<k;i++)
+        {
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+
+        // Create an ArrayList to store the largest element in window
+        ArrayList<Integer> list = new ArrayList<>();
+        //get the first value which is largest in window by iterator and next method and add it to the list
+        Integer val = map.keySet().iterator().next();
+        list.add(val);
+        // similarly for all window do the same. That is remove the last element and add new element in TreeMap and add largest element to the list 
+        for(int i= k;i<nums.length;i++)
+        {
+            int temp = nums[i-k];
+            map.put(temp,map.get(temp)-1);
+            if(map.get(temp)<=0)
+            {
+                map.remove(temp);
+            }
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+            val = map.keySet().iterator().next();
+            list.add(val);
+        }
+        // Convert list to int array and return it
+        int[] ans = list.stream().mapToInt(i->i).toArray();
+        return ans;
+    }
+}
