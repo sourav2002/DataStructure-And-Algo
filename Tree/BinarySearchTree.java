@@ -140,4 +140,19 @@ public class BinarySearchTree {
             left = right = null;
         }
     }
+
+    public void descending() {
+    }
+
+    public String countNodes() {
+        return null;
+    }
+
+    public String isEmpty() {
+        return null;
+    }
+
+    public char[] minValue() {
+        return null;
+    }
 }
